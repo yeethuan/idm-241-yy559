@@ -48,7 +48,7 @@ h1 {
 }
 
 .grid-container ul {
-    padding-left: 0;
+    padding-left: 20px;
 }
 
 @media (max-width: 768px) {
