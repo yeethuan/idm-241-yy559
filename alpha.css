@@ -18,6 +18,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
     gap: 20px; /* Adds space between the columns */
+    outline-color: #808080;
 }
 
 .grid-container h3 {
