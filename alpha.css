@@ -7,18 +7,22 @@ h1 {
 }
 
 .video-container {
-    display: flex; /* Use Flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically, if needed */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
     margin: 20px;
 }
 
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-    gap: 20px; /* Adds space between the columns */
-    outline-color: #808080;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    border: 1px solid gray;
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
 }
 
 .grid-container h3 {
