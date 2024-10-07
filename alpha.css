@@ -1,3 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+.video-container {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically, if needed */
+    margin: 20px;
+}
+
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
@@ -12,3 +24,4 @@
     list-style-type: none;
     padding-left: 0;
 }
+
