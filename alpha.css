@@ -18,6 +18,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    padding: 0 40px;
 }
 
 .grid-container div {
@@ -35,5 +36,18 @@ h1 {
 .grid-container ul {
     list-style-type: none;
     padding-left: 0;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; 
+    }
 }
 
