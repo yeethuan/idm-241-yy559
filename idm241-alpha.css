@@ -93,6 +93,7 @@ h2 {
 @media (max-width: 500px) {
     .grid-container {
         grid-template-columns: 1fr; 
+        padding: 0 10px;
     }
 }
 
