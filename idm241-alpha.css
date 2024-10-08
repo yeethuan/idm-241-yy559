@@ -83,14 +83,14 @@ h2 {
     padding-left: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .grid-container {
         grid-template-columns: 1fr; 
     }
