@@ -5,13 +5,20 @@ header {
     margin: 0px;
 }
 
-a:link {
+a.styled-link {
     background-color: #0078D4;
     color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    border-radius: 5px;
+}
+
+a.styled-link:hover, 
+a.styled-link:focus {
+    background-color: #005a9e; 
+    text-decoration: underline; 
 }
 
 img {
@@ -22,6 +29,7 @@ img {
 body {
     font-family: Verdana, Tahoma, sans-serif;
     color: #7b7b7b;
+    align-items: center;
 }
 
 
