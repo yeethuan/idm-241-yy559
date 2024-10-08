@@ -5,6 +5,13 @@ header {
     margin: 0px;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px 0;
+}
+
 a.styled-link {
     background-color: #0078D4;
     color: white;
@@ -29,12 +36,7 @@ img {
 body {
     font-family: Verdana, Tahoma, sans-serif;
     color: #7b7b7b;
-    align-items: center;
-    display: flex;               
-    justify-content: center;     
-    align-items: center;         
-    height: 100vh;               
-    margin: 0;  
+    align-items: center;                      
 }
 
 
