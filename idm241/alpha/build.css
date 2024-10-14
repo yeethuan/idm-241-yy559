@@ -59,21 +59,32 @@ body {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .email-list li:hover {
     background-color: #edf2f7;
 }
+
+.email-list li .details {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%; 
+}
         
 .email-list li .subject {
     font-weight: bold;
+    margin-bottom: 5px;
 }
         
 .email-list li .snippet {
     color: #718096;
+    font-size: 14px;
 }
 
 .email-list li .date {
     color: #718096;
     font-size: 14px;
+    white-space: nowrap;
+    margin-left: 20px;
 }
