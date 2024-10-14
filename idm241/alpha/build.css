@@ -57,6 +57,8 @@ body {
     padding: 15px;
     border-bottom: 1px solid #e2e8f0;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
 .email-list li:hover {
