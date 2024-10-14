@@ -80,6 +80,7 @@ body {
 .email-list li .snippet {
     color: #718096;
     font-size: 14px;
+    margin-left: 10px;
 }
 
 .email-list li .date {
