@@ -70,3 +70,8 @@ body {
 .email-list li .snippet {
     color: #718096;
 }
+
+.email-list li .date {
+    color: #718096;
+    font-size: 14px;
+}
