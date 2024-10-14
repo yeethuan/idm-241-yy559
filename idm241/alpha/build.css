@@ -61,6 +61,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: 70%
 }
 
 .sender, .recipient, .snippet {
