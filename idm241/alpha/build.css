@@ -63,17 +63,17 @@ body {
     gap: 10px;
 }
 
-.subject, .recipient, .snippet {
+.sender, .recipient, .snippet {
     font-size: 14px;
     line-height: 1.5;
 }
 
-.subject {
+.sender {
     font-weight: bold;
     color: #333;
 }
 
-.recipient {
+.subject {
     color: #555;
 }
 
