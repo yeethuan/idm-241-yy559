@@ -5,6 +5,19 @@ body {
     background-color: #f5f6fa;
 }
 
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: #2d3748;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
 .inbox-container {
     display: flex;
     height: 100vh;
@@ -126,5 +139,9 @@ body {
 @media (max-width: 768px) {
     .sidebar {
         display: none;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 }
