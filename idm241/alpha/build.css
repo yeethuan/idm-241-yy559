@@ -47,7 +47,7 @@ body {
 
 /* EMAIL */
 .email-container {
-    flex-grow: 1; 
+    flex-grow: 0; 
     background-color: white;
     margin-left: 10px;
     margin-right: 10px;
@@ -57,7 +57,7 @@ body {
     border-radius: 5px;
     overflow: hidden;
     flex-direction: column;
-    height: calc(20vh);
+    height: calc(10vh);
 }
 
 .email-content {
