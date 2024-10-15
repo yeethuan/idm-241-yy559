@@ -105,7 +105,7 @@ body {
 
 .email-icons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     opacity: 100;
     transition: opacity 0.3s ease; 
     margin-bottom: 5px;
@@ -348,16 +348,18 @@ h2 {
     }
 
     .email-icons {
+        display: flex;
+        justify-content: center; 
         flex-wrap: wrap; 
-        display:flex;
         gap: 10px; 
-        margin-top: 5px; 
-        text-align: center;
+        margin-top: 5px;
     }
-
+    
     .email-icons i {
-        font-size: 16px; 
-        text-align: center;
+        font-size: 16px;
+        color: #999;
+        cursor: pointer;
+        text-align: center; 
     }
 
     .grid-container {
