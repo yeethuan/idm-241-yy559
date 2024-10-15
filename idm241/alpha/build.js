@@ -38,9 +38,9 @@ const menuToggle = document.querySelector('.menu-toggle');
 // SIDEBAR
 menuToggle.addEventListener('click', () => {
     if (sidebar.style.display === 'none' || sidebar.style.display === '') {
-        sidebar.style.display = 'block';  // Show sidebar
+        sidebar.style.display = 'block';  
     } else {
-        sidebar.style.display = 'none';   // Hide sidebar
+        sidebar.style.display = 'none';   
     }
 });
 
@@ -68,24 +68,24 @@ function showUndoPopup() {
 }
 
 function handleDeleteEmail(event) {
-    const emailContent = event.target.closest('.email-content'); // Get the parent email container
+    const emailContent = event.target.closest('.email-content'); 
     if (emailContent) {
-        emailContent.style.display = 'none'; // Hide the email
-        lastDeletedEmail = emailContent; // Store the deleted email reference
-        trashCount++; // Increment the trash count
-        document.querySelector('.trash-count').innerText = `(${trashCount})`; // Update trash count
-        showUndoPopup(); // Show the undo pop-up
+        emailContent.style.display = 'none'; 
+        lastDeletedEmail = emailContent;
+        trashCount++; 
+        document.querySelector('.trash-count').innerText = `(${trashCount})`; 
+        showUndoPopup(); 
     }
 }
 
 function undoDeleteEmail() {
     if (lastDeletedEmail) {
-        lastDeletedEmail.style.display = 'flex'; // Restore the email
-        trashCount--; // Decrease the trash count
-        document.querySelector('.trash-count').innerText = `(${trashCount})`; // Update trash count
-        lastDeletedEmail = null; // Clear the reference
-        clearTimeout(undoTimeout); // Cancel the timeout
-        document.getElementById('undoPopup').style.display = 'none'; // Hide the pop-up
+        lastDeletedEmail.style.display = 'flex';
+        trashCount--; 
+        document.querySelector('.trash-count').innerText = `(${trashCount})`; 
+        lastDeletedEmail = null; 
+        clearTimeout(undoTimeout); 
+        document.getElementById('undoPopup').style.display = 'none'; 
     }
 }
 

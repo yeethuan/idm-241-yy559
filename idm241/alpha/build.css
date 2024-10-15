@@ -194,4 +194,22 @@ body {
     .menu-toggle {
         display: block;
     }
+
+    .inbox-container {
+        flex-direction: column;
+    }
+
+    .email-container {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .email-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .email-icons {
+        justify-content: flex-start;
+    }
 }
