@@ -114,11 +114,13 @@ body {
 .email-date {
     font-size: 14px;
     color: #999;
+    text-align: end;
+    margin-bottom: 10px;
 }
 
 .email-icons {
     display: flex;
-    gap: 20px; 
+    justify-content: flex-end;
     opacity: 100;
     transition: opacity 0.3s ease; 
     margin-bottom: 5px;
@@ -128,7 +130,8 @@ body {
     font-size: 18px;
     color: #999;
     cursor: pointer;
-    margin-left: auto; 
+    margin-left: 20px;
+    /* margin-left: auto;  */
 }
 
 .email-icons i:hover {
@@ -137,7 +140,8 @@ body {
 
 .icon-and-date {
     display: flex; 
-    justify-content: space-between; 
+    justify-content: flex-end;
+    flex-direction: column; 
     width: 100%; 
 }
 
