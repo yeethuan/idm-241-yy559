@@ -69,21 +69,15 @@ body {
     padding: 20px;
     padding-bottom: 0px;
     border: 1px solid #ddd;
-    border-bottom: 0px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     overflow: hidden;
     flex-direction: column;
     height: calc(20vh);
 }
 
 .email-content {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
 }
 
@@ -118,11 +112,8 @@ body {
 }
 
 .email-date {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
-    padding-left: 10px;
-    margin-right: auto; 
-    text-align: left;
 }
 
 .email-icons {
