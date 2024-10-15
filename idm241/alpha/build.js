@@ -20,7 +20,7 @@ function applySnippetTruncation() {
     if (mediaQuery.matches) {
         truncateSnippet('.snippet', 18);  
     } else {
-        truncateSnippet('.snippet', 26);  
+        truncateSnippet('.snippet', 20);  
     }
 }
 

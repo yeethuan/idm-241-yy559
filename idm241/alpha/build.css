@@ -21,12 +21,6 @@ body {
 }
 
 
-.inbox-container {
-    display: flex;
-    height: 100vh;
-}
-
-
 
 
 
@@ -73,6 +67,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 .email-content {
@@ -86,6 +81,11 @@ body {
     flex-direction: column;
     gap: 10px;
     max-width: 90%;
+}
+
+.inbox-container {
+    display: flex;
+    height: calc(100vh - 60px);
 }
 
 .sender, .subject, .snippet {
@@ -136,6 +136,11 @@ body {
     color: #333;
 }
 
+.icon-and-date {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+}
 
 
 
@@ -179,6 +184,15 @@ body {
 /* MEDIA QUERIES */
 
 @media (max-width: 1500px) {
+    
+    .sidebar {
+        display: none; 
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
     .snippet {
         white-space: nowrap;  
         overflow: hidden;     
@@ -188,7 +202,7 @@ body {
 
 @media (max-width: 768px) {
     .sidebar {
-        display: none;
+        display: none; 
     }
 
     .menu-toggle {
@@ -196,20 +210,32 @@ body {
     }
 
     .inbox-container {
-        flex-direction: column;
+        flex-direction: column; 
     }
 
     .email-container {
-        margin: 0;
-        padding: 10px;
+        margin: 0; 
+        padding: 10px; 
     }
 
     .email-content {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .icon-and-date {
+        width: 100%; 
+        justify-content: flex-start; 
+        margin-top: 10px; 
     }
 
     .email-icons {
-        justify-content: flex-start;
+        flex-wrap: wrap; 
+        gap: 10px; 
+        margin-top: 5px; 
+    }
+
+    .email-icons i {
+        font-size: 16px; 
     }
 }
