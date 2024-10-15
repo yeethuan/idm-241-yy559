@@ -23,7 +23,11 @@ body {
     height: 100vh;
 }
 
-/* Sidebar styling */
+
+
+
+
+/* SIDEBAR */
 .sidebar {
     width: 200px;
     background-color: #2d3748;
@@ -51,7 +55,10 @@ body {
     background-color: #4a5568;
 }
 
-/* Email view styling */
+
+
+
+/* EMAIL */
 .email-container {
     flex-grow: 1; 
     background-color: white;
@@ -127,6 +134,33 @@ body {
 }
 
 
+
+
+/* UNDO */
+.undo-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.undo-popup p {
+    margin: 0;
+}
+
+#undoButton {
+    color: #ffcc00;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+/* MEDIA QUERIES */
 
 @media (max-width: 1500px) {
     .snippet {
