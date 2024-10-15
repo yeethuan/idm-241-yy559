@@ -20,7 +20,11 @@ body {
     cursor: pointer;
 }
 
-
+.inbox-container {
+    display: flex;
+    height: calc(100vh);
+    
+}
 
 
 
@@ -59,15 +63,19 @@ body {
 .email-container {
     flex-grow: 1; 
     background-color: white;
-    margin: 20px;
+    margin-left: 10px;
     padding: 20px;
+    padding-bottom: 0px;
     border: 1px solid #ddd;
+    border-bottom: 0px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
+    flex-direction: column;
+    height: calc(100vh);
 }
 
 .email-content {
@@ -83,10 +91,6 @@ body {
     max-width: 90%;
 }
 
-.inbox-container {
-    display: flex;
-    height: calc(100vh - 60px);
-}
 
 .sender, .subject, .snippet {
     font-size: 18px;
