@@ -29,20 +29,20 @@ applySnippetTruncation();
 window.addEventListener('resize', applySnippetTruncation);
 
 
-const sidebar = document.querySelector('.sidebar');
-const menuToggle = document.querySelector('.menu-toggle');
+// const sidebar = document.querySelector('.sidebar');
+// const menuToggle = document.querySelector('.menu-toggle');
 
 
 
 
-// SIDEBAR
-menuToggle.addEventListener('click', () => {
-    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
-        sidebar.style.display = 'block';  
-    } else {
-        sidebar.style.display = 'none';   
-    }
-});
+// // SIDEBAR
+// menuToggle.addEventListener('click', () => {
+//     if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+//         sidebar.style.display = 'block';  
+//     } else {
+//         sidebar.style.display = 'none';   
+//     }
+// });
 
 
 
