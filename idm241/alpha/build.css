@@ -34,7 +34,6 @@ body {
     background-color: #2d3748;
     padding: 20px;
     color: white;
-    transition: transform 0.3s ease;
     margin-bottom: 10px;
     margin-left:10px;
     border-radius:5px;
@@ -341,5 +340,9 @@ h2 {
     .grid-container {
         grid-template-columns: 1fr; 
         padding: 0 10px;
+    }
+
+    .header {
+        text-align:right;
     }
 }
