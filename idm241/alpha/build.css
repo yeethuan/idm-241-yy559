@@ -134,7 +134,7 @@ body {
 }
 
 .email-icons .fa-trash::after {
-    content: "Delete Email"; 
+    content: "Delete"; 
     position: absolute;
     bottom: 100%; 
     left: 60%;
