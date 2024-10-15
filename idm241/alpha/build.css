@@ -12,6 +12,7 @@ body {
 .inbox-container {
     display: flex;
     height: calc(24.5vh);
+    justify-content: center;
 }
 
 
@@ -261,35 +262,27 @@ h2 {
 @media (max-width: 1500px) {
     
     .sidebar {
-        display: none; 
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .snippet {
-        white-space: nowrap;  
-        overflow: hidden;     
-        text-overflow: ellipsis;
+        display: block; 
     }
 
     .grid-container {
         grid-template-columns: repeat(2, 1fr); 
     }
-
-
 }
 
 @media (max-width: 768px) {
     .sidebar {
         display: center; 
+        width: 100%; 
+        margin: 10px 0;
     }
 
 
     .inbox-container {
         flex-direction: column; 
+        align-items: center;
     }
+
 
     .email-container {
         margin: 0; 
