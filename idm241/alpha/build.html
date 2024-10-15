@@ -21,7 +21,7 @@
                 <li>Inbox</li>
                 <li>Sent</li>
                 <li>Drafts</li>
-                <li>Trash</li>
+                <li>Trash <span class="trash-count">(0)</span></li>
             </ul>
         </div>
 
@@ -38,12 +38,16 @@
                         <i class="fas fa-thumbtack"></i>
                         <i class="fas fa-flag"></i>
                         <i class="fas fa-envelope-open"></i>
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash delete-btn"></i>
                     </div>
                     <div class="email-date">Oct 14, 2024</div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="undo-popup" id="undoPopup" style="display: none;">
+        <p>Email deleted. <span id="undoButton">Undo</span></p>
     </div>
 
     <script src="build.js" defer></script>
