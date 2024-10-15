@@ -16,6 +16,7 @@ body {
     background-color: #2d3748;
     padding: 20px;
     color: white;
+    transition: transform 0.3s ease;
 }
 
 .sidebar h2 {
@@ -61,12 +62,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 80%;
+    max-width: 90%;
 }
 
-.sender, .recipient, .snippet {
-    font-size: 14px;
-    line-height: 1.5;
+.sender, .subject, .snippet {
+    font-size: 18px;
+    line-height: 1.25;
 }
 
 .sender {
@@ -79,7 +80,11 @@ body {
 }
 
 .snippet {
+    font-size: 18px;
     color: #777;
+    white-space: normal; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .email-date {
@@ -88,4 +93,38 @@ body {
     align-self: flex-start;
     padding-left: 10px;
     text-align: right;
+}
+
+.email-icons {
+    display: flex;
+    gap: 20px; 
+    opacity: 100;
+    transition: opacity 0.3s ease; 
+    margin-bottom: 5px;
+}
+
+.email-icons i {
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
+
+.email-icons i:hover {
+    color: #333;
+}
+
+
+
+@media (max-width: 1500px) {
+    .snippet {
+        white-space: nowrap;  
+        overflow: hidden;     
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 }
