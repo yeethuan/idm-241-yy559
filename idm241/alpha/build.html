@@ -8,6 +8,10 @@
     <title>Email Inbox</title>
 </head>
 
+<header>
+    <img src="media/outlook-logo.png">
+</header>
+
 <body>
 
     <h1>Alpha Build</h1>
@@ -50,6 +54,77 @@
 
     <div class="undo-popup" id="undoPopup" style="display: none;">
         <p>Email deleted. <span id="undoButton">Undo</span></p>
+    </div>
+
+
+    <div class="grid-container">
+        <div>
+            <h3>TRIGGERS</h3>
+            <h4>Trash Button</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>
+        </div>
+    
+        <div>
+            <h3>RULES</h3>
+            <h4>Trash Button</h4>
+            <ul>
+                <li>Hover ON</li>
+                <ul>
+                    <li>Cursor changes to finger</li>
+                    <li>Trash lid animates shake</li>
+                    <li>Icon background fills in with the color red 20%</li>
+                    <li>Icon outline changes to the color red</li>
+                    <li>3 second delay "Delete" appears as tagline</li>
+                </ul>
+                <li>Hover OFF</li>
+                <ul>
+                    <li>Cursor changes back to pointer</li>
+                </ul>
+                <li>Mouse UP</li>
+                <ul>
+                    <li>Database record flag set to FALSE</li>
+                </ul>
+            </ul>
+        </div>
+    
+    
+        <div>
+        <h3>FEEDBACK</h3>
+        <h4>Trash Button</h4>
+        <ul>
+            <li>Hover ON</li>
+            <ul>
+                <li>Cursor changes to finger</li>
+                <li>Trash lid animates shake</li>
+                <li>Icon background fills in with the color red 20%</li>
+                <li>Icon outline changes to the color red</li>
+                <li>3 second delay "Delete" appears as tagline</li>
+            </ul>
+                <li>Hover OFF</li>
+            <ul>
+            <li>Cursor changes back to pointer</li>
+        </ul>
+        </div>
+    
+    
+        <div>
+        <h3>LOOPS &amp; MODES</h3>
+        <h4>Trash Button LOOPS</h4>
+            <ul>
+                <li>NONE</li>
+            </ul>
+    
+    
+        <h4>Trash Button MODES</h4>
+            <ul>
+                <li>A popup appears at the bottom of the page confirming the message has been deleted, with an "Undo" button allowing the user to reverse the action.</li>
+            </ul>
+        </div>
     </div>
 
     <script src="build.js" defer></script>
