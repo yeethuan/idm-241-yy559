@@ -185,10 +185,10 @@ body {
 
 
 header {
-    display: flex;
     padding: 10px 20px;
     background-color: #0078D4;
     border-top: 20px;
+    text-align:right;
 }
 
 .button-container {
