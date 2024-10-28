@@ -11,8 +11,10 @@ body {
 
 .inbox-container {
     display: flex;
-    height: calc(24.5vh);
+    align-items: flex-start; /* Align items at the top */
     justify-content: center;
+   /* Full width for layout control */
+    padding: 20px;
 }
 
 
@@ -23,8 +25,9 @@ body {
     background-color: #2d3748;
     padding: 20px;
     color: white;
-    margin-bottom: 10px;
-    border-radius:5px;
+    margin-right: 20px; /* Space between sidebar and email containers */
+    border-radius: 5px;
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
 }
 
 .sidebar h2 {
@@ -43,20 +46,19 @@ body {
 }
 
 
-
+.email-container-wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks email containers vertically */
+    gap: 10px; /* Adds space between each email container */
+}
 
 /* EMAIL */
 .email-container {
-    flex-grow: 0; 
+    max-width: 600px;
     background-color: white;
-    margin-left: 10px;
-    margin-right: 10px;
     padding: 20px;
-    padding-bottom: 0px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    flex-direction: column;
-    height: calc(10vh);
 }
 
 .email-content {
@@ -278,6 +280,41 @@ h2 {
 
 .grid-container ul {
     padding-left: 20px;
+}
+
+
+/* Style for pinned email */
+.pinned {
+    background-color: #ffcccc; /* Red color to indicate pinned email */
+    border: 1px solid #ff4d4d;
+    transition: background-color 0.3s ease;
+}
+
+/* Tooltip for the pin icon */
+.email-icons .fa-thumbtack {
+    position: relative;
+}
+
+.email-icons .fa-thumbtack::after {
+    content: "Pin";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #808080;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20;
+}
+
+.email-icons .fa-thumbtack:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 
