@@ -1,38 +1,40 @@
-h1 {
-    text-align: center;
-}
+/* Universal styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f6fa;
+    color: #7b7b7b;
+    text-align: center;
 }
 
+/* Header styling */
+header {
+    padding: 10px 20px;
+    background-color: #0078d4;
+    text-align: right;
+}
 
+header img {
+    max-width: 30px;
+    height: auto;
+}
+
+/* Sidebar and Email Container Styling */
 .inbox-container {
     display: flex;
-    align-items: flex-start; /* Align items at the top */
     justify-content: center;
-   /* Full width for layout control */
     padding: 20px;
 }
 
-
-
-/* SIDEBAR */
 .sidebar {
     width: 200px;
     background-color: #2d3748;
-    padding: 20px;
     color: white;
-    margin-right: 20px; /* Space between sidebar and email containers */
+    padding: 20px;
+    margin-right: 20px;
     border-radius: 5px;
-    flex-shrink: 0; /* Prevents sidebar from shrinking */
-}
-
-.sidebar h2 {
-    margin-bottom: 30px;
-    text-align: left;
+    flex-shrink: 0;
 }
 
 .sidebar ul {
@@ -40,19 +42,12 @@ body {
     padding: 0;
 }
 
-.sidebar ul li {
-    padding: 10px;
-    border-bottom: 1px solid #4a5568;
-}
-
-
 .email-container-wrapper {
     display: flex;
-    flex-direction: column; /* Stacks email containers vertically */
-    gap: 10px; /* Adds space between each email container */
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* EMAIL */
 .email-container {
     max-width: 600px;
     background-color: white;
@@ -62,109 +57,52 @@ body {
     transition: transform 0.5s ease;
 }
 
-.email-container.move-to-top {
-    transform: translateY(-100%); /* Animation for moving to top */
+.move-to-top {
+    transform: translateY(-100%); 
     transition: transform 0.5s ease;
 }
 
-.email-content {
-    display: flex;
-    align-items: flex-start;
+.pinned {
+    background-color: #ccdcff;
+    border: 1px solid #0052df;
+    order: -1;
 }
 
-.email-details {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 90%;
-}
-
-
-.sender, .subject, .snippet {
-    font-size: 18px;
-    line-height: 1.25;
-}
-
-.sender {
-    font-weight: bold;
-    color: #333;
-}
-
-.subject {
-    color: #555;
-}
-
-.snippet {
-    font-size: 18px;
-    color: #777;
-    white-space: normal; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
-
-
+/* Icons and Tooltips */
 .email-icons {
     display: flex;
     justify-content: center;
-    opacity: 100;
-    transition: opacity 0.3s ease; 
-    margin-bottom: 5px;
+    gap: 20px;
 }
 
 .email-icons i {
     font-size: 18px;
     color: #999;
     cursor: pointer;
-    margin-left: 20px;
 }
 
 .email-icons i:hover {
     color: #0078d4;
 }
 
-.icons {
-    display: flex; 
-    justify-content: flex-end;
-    flex-direction: column; 
-    width: 100%; 
-}
-
-.pinned {
-    border-left: 3px solid blue; 
-}
-
-/* TAGLINE HOVER */
-.email-icons .fa-trash {
-    position: relative; 
-}
-
-.email-icons .fa-trash::after {
-    content: "Delete"; 
+.email-icons .fa-trash:hover::after,
+.email-icons .fa-thumbtack:hover::after {
+    content: attr(data-tooltip);
     position: absolute;
-    bottom: 100%; 
-    left: 60%;
-    transform: translateX(-60%);
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #808080;
     color: white;
-    padding: 5px 10px;
+    padding: 5px;
     border-radius: 5px;
-    white-space: nowrap;
     font-size: 12px;
-    opacity: 0; 
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 20; 
-}
-
-.email-icons .fa-trash:hover::after {
     opacity: 1;
     visibility: visible;
+    transition: opacity 0.3s ease-in-out;
 }
 
-
-
-/* UNDO */
+/* Undo Popup */
 .undo-popup {
     position: fixed;
     top: 20%;
@@ -176,93 +114,15 @@ body {
     border-radius: 5px;
     z-index: 800;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(71, 71, 71, 0.2);
 }
 
-.undo-popup p {
-    margin: 0;
-}
-
-#undoButton {
-    color: #ffcc00;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.undo-popup p {
-    margin: 0;
-}
-
-#undoButton {
+.undo-popup #undoButton {
     color: #0078d4;
     cursor: pointer;
     font-weight: bold;
 }
 
-
-
-header {
-    padding: 10px 20px;
-    background-color: #0078d4;
-    border-top: 20px;
-    text-align:right;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin: 20px 0;
-}
-
-a.styled-link {
-    background-color: #0078D4;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-}
-
-a.styled-link:hover, 
-a.styled-link:focus {
-    background-color: #005a9e; 
-    text-decoration: underline; 
-}
-
-img {
-    max-width:30px;
-    height:auto;
-}
-
-body {
-    font-family: Verdana, Tahoma, sans-serif;
-    color: #7b7b7b;
-    align-items: center;                      
-}
-
-
-
-h1 {
-    text-align: center;
-    color: #7b7b7b;
-}
-
-h2 {
-    text-align: center;
-    font-size: 18px;
-    color: #bdbdbd;
-}
-
-.video-container {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-}
-
-
+/* Grid Section */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -272,190 +132,33 @@ h2 {
 
 .grid-container div {
     border: 1px solid #e9e9e9;
-    border-radius: 10px; 
-    padding: 20px; 
+    border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    
 }
 
-.grid-container h3 {
-    margin-bottom: 10px;
+ul {
+    list-style-position: inside; 
+    padding-left: 0; 
+    margin-left: 0; 
+    text-align: left; aligned */
 }
 
-.grid-container ul {
-    padding-left: 20px;
+li {
+    padding-left: 10px; /* Adds a small indent */
+    margin-left: 0; /* Ensures left alignment */
+    line-height: 1.25;
 }
 
-
-/* Style for pinned email */
-.pinned {
-    background-color: #ccdcff; /* Red color to indicate pinned email */
-    border: 1px solid #0052df;
-    transition: background-color 0.3s ease;
-}
-
-/* Tooltip for the pin icon */
-.email-icons .fa-thumbtack {
-    position: relative;
-}
-
-.email-icons .fa-thumbtack::after {
-    content: "Pin";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #808080;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 20;
-}
-
-.email-icons .fa-thumbtack:hover::after {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-
-/* MEDIA QUERIES */
-
-@media (max-width: 1500px) {
-    
-    body {
-        overflow-x: hidden; 
-    }
-
-    .sidebar {
-        display: center; 
-        width: auto; 
-        margin: 10px;
-    }
-
-
-    .inbox-container {
-        flex-direction: column; 
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: auto; 
-        padding: 10px;
-        margin-bottom: 20px; 
-    }
-
-    .email-container {
-        width: auto;
-        height:auto;
-        padding: 10px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .email-content {
-        flex-direction: column; 
-        align-items: flex-start; 
-    }
-
-    .icon-and-date {
-        width: auto; 
-        justify-content: space-between; 
-        margin-top: 10px; 
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-    
-    body {
-        overflow-x: hidden; 
-    }
-    
-    .sidebar {
-        display: center; 
-        width: auto; 
-        margin: 10px;
-    }
-
-
-    .inbox-container {
-        flex-direction: column; 
+    .inbox-container, .grid-container {
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: auto; 
-        padding: 10px;
-        margin-bottom: 20px; 
-        display: center;
-    }
-
-
-    .email-container {
-        margin: 0; 
-        padding: 10px; 
-        margin-left: 10px;
-        margin-right:10px;
-        transition: transform 0.5s ease;
-    }
-
-    .email-content {
-        flex-direction: column; 
-        align-items: flex-start; 
-    }
-
-    .email-container.move-to-top {
-        transform: translateY(-100%);
-        transition: transform 0.5s ease;
-    }
-    
-    .email-icons i.pin-icon {
-        color: gray; /* Default color */
-        cursor: pointer;
-        transition: color 0.3s ease;
-    }
-    
-    .email-icons i.pin-icon.active {
-        color: blue; /* Color when pinned */
-    }
-
-    .pinned {
-        border-left: 3px solid blue;
-    }
-
-    .icons {
-        width: 100%; 
-        justify-content: flex-start;  
-    }
-
-    .email-icons {
-        display: flex;
-        justify-content: center; 
-        flex-wrap: wrap; 
-        gap: 10px; 
-        margin-top: 5px;
-    }
-    
-    .email-icons i {
-        font-size: 16px;
-        color: #999;
-        cursor: pointer;
-        text-align: center; 
     }
 
     .grid-container {
-        grid-template-columns: 1fr; 
-        padding: 0 10px;
-        margin-top: 20px;
-    }
-
-    .header {
-        text-align:right;
+        grid-template-columns: 1fr;
+        padding: 10px;
     }
 }
