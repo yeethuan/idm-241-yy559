@@ -1,3 +1,4 @@
+// DELETE EMAIL --------------------------------------------------------------------------------
 let trashCount = 0;
 let lastDeletedEmail = null;
 let undoTimeout = null;
@@ -43,37 +44,68 @@ document.querySelectorAll('.delete-btn').forEach(button => {
 
 document.getElementById('undoButton').addEventListener('click', undoDeleteEmail);
 
-
+// PIN EMAIL --------------------------------------------------------------------------------
 function handlePinEmail(event) {
     const emailContainer = event.target.closest('.email-container');
     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
 
-    // Toggle pin active state and set order
     const isPinned = emailContainer.classList.toggle('pinned');
     pinIcon.classList.toggle('active', isPinned);
 
-    // If there’s a previously pinned email, reset its order and state
     if (pinnedEmail && pinnedEmail !== emailContainer) {
         pinnedEmail.classList.remove('pinned');
         pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
-        pinnedEmail.style.order = ''; // Reset order for previous pinned email
+        pinnedEmail.style.order = ''; 
     }
 
-    // Update pinned email and set order if pinned, else reset
     if (isPinned) {
         pinnedEmail = emailContainer;
-        emailContainer.style.order = '-1'; // Set order to move to the top
+        emailContainer.style.order = '-1'; 
         emailContainer.classList.add('move-to-top');
         setTimeout(() => {
             emailContainer.classList.remove('move-to-top');
         }, 500);
     } else {
         pinnedEmail = null;
-        emailContainer.style.order = ''; // Reset position when unpinned
+        emailContainer.style.order = ''; 
     }
 }
 
-// Attach the click event to each pin icon
 document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
     pinIcon.addEventListener('click', handlePinEmail);
+});
+
+// RESPOND EMAIL --------------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const respondIcons = document.querySelectorAll('.fa-envelope-open');
+    const respondPopup = document.getElementById('respondPopup');
+    const closePopup = document.getElementById('closePopup');
+    const sendResponse = document.getElementById('sendResponse');
+
+    // Show the popup when the envelope icon is clicked
+    respondIcons.forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent event from bubbling
+            respondPopup.style.display = 'block'; // Show the popup
+        });
+    });
+
+    // Close the popup when the cancel button is clicked
+    closePopup.addEventListener('click', () => {
+        respondPopup.style.display = 'none'; // Hide the popup
+    });
+
+    // Close the popup when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === respondPopup) {
+            respondPopup.style.display = 'none';
+        }
+    });
+
+    // Functionality for sending response can be implemented here
+    sendResponse.addEventListener('click', () => {
+        const responseText = document.getElementById('responseText').value;
+        console.log('Response Sent:', responseText); // Placeholder for actual send logic
+        respondPopup.style.display = 'none'; // Hide the popup after sending
+    });
 });
