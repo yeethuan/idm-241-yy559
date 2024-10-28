@@ -143,7 +143,7 @@ header img {
 /* Undo Popup START*/
 .undo-popup {
     position: fixed;
-    top: 20%;
+    bottom: -35px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #333;
@@ -152,6 +152,28 @@ header img {
     border-radius: 5px;
     z-index: 800;
     text-align: center;
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 20px;
+        opacity: 1;
+    }
+}
+
+.undo-popup.show {
+    animation: slideUp 0.5s ease forwards;
+    opacity: 1;
+}
+
+.undo-popup #undoButton {
+    color: #0078d4;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .undo-popup #undoButton {
@@ -242,14 +264,49 @@ header img {
 
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .inbox-container, .grid-container {
-        flex-direction: column;
+@media (max-width: 900px) {
+    .inbox-container {
+        flex-direction: column; /* Stack items vertically */
         align-items: center;
+        padding:0;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .sidebar {
+        margin-bottom: 20px;
+        display: block;
+        padding:0px;
+        margin-right: 0px;
+    }
+
+
+    .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .inbox-container {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .email-container {
+        padding: 15px;
+    }
+
+    .email-icons i {
+        font-size: 16px;
     }
 
     .grid-container {
-        grid-template-columns: 1fr;
-        padding: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        padding-bottom: 10px;
     }
 }
