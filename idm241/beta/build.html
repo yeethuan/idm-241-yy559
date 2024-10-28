@@ -8,143 +8,123 @@
     <title>Beta Build</title>
 </head>
 
-<header>
-    <img src="media/outlook-logo.png">
-</header>
-
 <body>
+    <header>
+        <img src="media/outlook-logo.png" alt="Outlook Logo">
+    </header>
 
-    <h1>Beta Build</h1>
-    
-    <!-- side bar -->
-    <div class="inbox-container">
-        <div class="sidebar">
-            <h2>Folders</h2>
-            <ul>
-                <li>Trash <span class="trash-count">(0)</span></li>
-            </ul>
-        </div>
-
-    <!-- emails -->
-    <div class="email-container-wrapper">
-        <div class="email-container">
-            <div class="icon-and-date">
-                <div class="email-icons">
-                    <i class="fas fa-thumbtack"></i>
-                    <i class="fas fa-flag"></i>
-                    <i class="fas fa-envelope-open"></i>
-                    <i class="fas fa-trash delete-btn"></i>
-                </div>
-            </div>
-        </div>
-        <div class="email-container">
-            <div class="icon-and-date">
-                <div class="email-icons">
-                    <i class="fas fa-thumbtack"></i>
-                    <i class="fas fa-flag"></i>
-                    <i class="fas fa-envelope-open"></i>
-                    <i class="fas fa-trash delete-btn"></i>
-                </div>
-            </div>
-        </div>
-        <div class="email-container">
-            <div class="icon-and-date">
-                <div class="email-icons">
-                    <i class="fas fa-thumbtack"></i>
-                    <i class="fas fa-flag"></i>
-                    <i class="fas fa-envelope-open"></i>
-                    <i class="fas fa-trash delete-btn"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="undo-popup" id="undoPopup" style="display: none;">
-        <p>Email deleted. <span id="undoButton">Undo</span></p>
-    </div>
-
-
-    <div class="grid-container">
-        <div>
-            <h3>TRIGGERS</h3>
-            <h4>Trash Button</h4>
-            <ul>
-                <li>Hover ON</li>
-                <li>Hover OFF</li>
-                <li>Mouse DOWN</li>
-                <li>Mouse UP</li>
-            </ul>
-        </div>
-    
-        <div>
-            <h3>RULES</h3>
-            <h4>Trash Button</h4>
-            <ul>
-                <li>Hover ON</li>
+    <main>
+        <h1>Beta Build</h1>
+        
+        <!-- Sidebar and Emails Container -->
+        <div class="inbox-container">
+            <aside class="sidebar">
+                <h2>Folders</h2>
                 <ul>
-                    <li>Cursor changes to finger</li>
-                    <li>Icon changes color to black</li>
-                    <li>3 second delay "Delete" appears as tagline</li>
+                    <li>Trash <span class="trash-count">(0)</span></li>
                 </ul>
-                <li>Hover OFF</li>
+            </aside>
+
+            <section class="email-container-wrapper">
+                <!-- email containers with icons -->
+                <div class="email-container">
+                    <div class="icons email-icons">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-envelope-open"></i>
+                        <i class="fas fa-trash delete-btn"></i>
+                    </div>
+                </div>
+                <div class="email-container">
+                    <div class="icons email-icons">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-envelope-open"></i>
+                        <i class="fas fa-trash delete-btn"></i>
+                    </div>
+                </div>
+                <div class="email-container">
+                    <div class="icons email-icons">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-envelope-open"></i>
+                        <i class="fas fa-trash delete-btn"></i>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Undo Popup -->
+        <div class="undo-popup" id="undoPopup" style="display: none;">
+            <p>Email deleted. <span id="undoButton">Undo</span></p>
+        </div>
+
+        <!-- Triggers, Rules, Feedback, and Modes Container -->
+        <section class="grid-container">
+            <div>
+                <h3>TRIGGERS</h3>
+                <h4>Trash Button</h4>
                 <ul>
-                    <li>Cursor changes back to pointer</li>
-                    <li>"Delete" tagline disappears</li>
+                    <li>Hover ON</li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
                 </ul>
-                <li>Mouse DOWN</li>
-                    <li></li>
-                <li>Mouse UP</li>
+            </div>
+            <div>
+                <h3>RULES</h3>
+                <h4>Trash Button</h4>
                 <ul>
-                    <li>A popup appears at the bottom of the page confirming the message has been deleted, with an "Undo" button allowing the user to reverse the action</li>
-                    <li>Database record flag set to FALSE</li>
-                    <li>Popup fades away after 5 seconds of inaction</li> 
-                    <li>Trash number increases n+1</li>
-                    <li>Trash database set to n+1</li>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon changes color to black</li>
+                            <li>3-second delay "Delete" appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Cursor changes back to pointer</li>
+                            <li>"Delete" tagline disappears</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Popup with "Undo" button appears, fades after 5 seconds</li>
+                            <li>Trash count increases by 1</li>
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
-        </div>
-    
-    
-        <div>
-        <h3>FEEDBACK</h3>
-        <h4>Trash Button</h4>
-        <ul>
-            <li>Hover ON</li>
-            <ul>
-                <li>Cursor changes to finger</li>
-                <li>Icon changes color to black</li>
-                <li>3 second delay "Delete" appears as tagline</li>
-            </ul>
-            <li>Hover OFF</li>
-            <ul>
-                <li>Cursor changes back to pointer</li>
-                <li>"Delete" tagline disappears</li>
-            </ul>
-            <li>Mouse UP</li>
-            <ul>
-                <li>A popup appears at the bottom of the page confirming the message has been deleted, with an "Undo" button allowing the user to reverse the action</li>
-                <li>Popup fades away after 5 seconds of inaction</li> 
-                <li>Trash number increases n+1</li>
-            </ul>
-        </ul>
-        </div>
-    
-    
-        <div>
-        <h3>LOOPS &amp; MODES</h3>
-        <h4>Trash Button LOOPS</h4>
-            <ul>
-                <li>NONE</li>
-            </ul>
-    
-    
-        <h4>Trash Button MODES</h4>
-            <ul>
-                <li>A popup appears at the bottom of the page confirming the message has been deleted, with an "Undo" button allowing the user to reverse the action.</li>
-            </ul>
-        </div>
-    </div>
+            </div>
+            <div>
+                <h3>FEEDBACK</h3>
+                <h4>Trash Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon color changes to black</li>
+                            <li>Displays "Delete" after 3 seconds</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Popup with "Undo" button appears</li>
+                            <li>Popup fades away after 5 seconds</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>LOOPS & MODES</h3>
+                <h4>Trash Button</h4>
+                <ul>
+                    <li>No loops</li>
+                    <li>Popup mode with "Undo" button appears upon delete</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
     <script src="build.js" defer></script>
 </body>
