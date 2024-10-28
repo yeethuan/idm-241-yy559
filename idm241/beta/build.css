@@ -197,6 +197,7 @@ header img {
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
+    text-align: left;
 }
 
 .respond-popup input,
@@ -209,9 +210,6 @@ header img {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.respond-popup textarea {
-    resize: none; /* Disable resizing */
-}
 
 .popup-buttons {
     display: flex;
