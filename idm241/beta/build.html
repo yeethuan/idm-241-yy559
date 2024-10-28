@@ -59,14 +59,26 @@
             <p>Email deleted. <span id="undoButton">Undo</span></p>
         </div>
 
+        <!-- RESPOND POPUP -->
         <div class="respond-popup" id="respondPopup" style="display: none;">
             <h3>Respond to Email</h3>
-            <textarea id="responseText" rows="5" placeholder="Type your response here..."></textarea>
-            <div>
-                <button id="sendResponse">Send</button>
-                <button id="closePopup">Cancel</button>
-            </div>
+        <label for="recipient">To:</label>
+        <input type="text" id="recipient" placeholder="Recipient email">
+        
+        <label for="cc">CC:</label>
+        <input type="text" id="cc" placeholder="CC email">
+
+        <label for="bcc">BCC:</label>
+        <input type="text" id="bcc" placeholder="BCC email">
+
+        <label for="responseText">Message:</label>
+        <textarea id="responseText" rows="5" placeholder="Type your response here..."></textarea>
+        
+        <div class="popup-buttons">
+            <button id="sendResponse">Send</button>
+            <button id="closePopup">Cancel</button>
         </div>
+            </div>
 
         <!-- Triggers, Rules, Feedback, and Modes Container -->
         <section class="grid-container">
