@@ -44,30 +44,55 @@ document.querySelectorAll('.delete-btn').forEach(button => {
 document.getElementById('undoButton').addEventListener('click', undoDeleteEmail);
 
 
-// To track the currently pinned email
-let pinnedEmail = null; 
+// // To track the currently pinned email
+// let pinnedEmail = null; 
 
-// Function to handle pinning
-function handlePinEmail(event) {
-    const emailContainer = event.target.closest('.email-container');
+// // Function to handle pinning
+// function handlePinEmail(event) {
+//     const emailContainer = event.target.closest('.email-container');
 
-    // Check if there is an already pinned email and unpin it
-    if (pinnedEmail && pinnedEmail !== emailContainer) {
-        pinnedEmail.classList.remove('pinned');
-    }
+//     // Check if there is an already pinned email and unpin it
+//     if (pinnedEmail && pinnedEmail !== emailContainer) {
+//         pinnedEmail.classList.remove('pinned');
+//     }
 
-    // Toggle pinning on the clicked email
-    emailContainer.classList.toggle('pinned');
-    if (emailContainer.classList.contains('pinned')) {
-        pinnedEmail = emailContainer;
-        emailContainer.style.order = -1; // Move to top by setting order in flex
-    } else {
-        pinnedEmail = null;
-        emailContainer.style.order = 0; // Reset position
-    }
-}
+//     // Toggle pinning on the clicked email
+//     emailContainer.classList.toggle('pinned');
+//     if (emailContainer.classList.contains('pinned')) {
+//         pinnedEmail = emailContainer;
+//         emailContainer.style.order = -1; // Move to top by setting order in flex
+//     } else {
+//         pinnedEmail = null;
+//         emailContainer.style.order = 0; // Reset position
+//     }
+// }
 
 // Add event listener for pin icon
 document.querySelectorAll('.fa-thumbtack').forEach(button => {
     button.addEventListener('click', handlePinEmail);
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const emailContainers = document.querySelectorAll(".email-container");
+
+    emailContainers.forEach((container) => {
+        const pinIcon = container.querySelector(".fa-thumbtack");
+
+        pinIcon.addEventListener("click", () => {
+            // Toggle the active class for the pinned state
+            const isPinned = pinIcon.classList.toggle("active");
+
+            if (isPinned) {
+                // Add animation class and move container to the top
+                container.classList.add("move-to-top");
+                // Temporarily hold its place until it moves to the top
+                setTimeout(() => {
+                    container.classList.remove("move-to-top");
+                    // Move the pinned container to the top of the inbox
+                    container.parentNode.insertBefore(container, container.parentNode.firstChild);
+                }, 500); // Adjust timing to match transition duration
+            }
+        });
+    });
 });
