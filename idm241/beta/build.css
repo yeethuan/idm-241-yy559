@@ -176,12 +176,6 @@ header img {
     font-weight: bold;
 }
 
-.undo-popup #undoButton {
-    color: #0078d4;
-    cursor: pointer;
-    font-weight: bold;
-}
-
 /* Grid Section */
 .grid-container {
     display: grid;
