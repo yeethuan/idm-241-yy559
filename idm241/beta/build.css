@@ -165,6 +165,11 @@ header img {
     color: #0078d4;
 }
 
+.email-icons .fa-thumbtack, .fa-flag, .fa-envelope-open, .fa-trash:active {
+    transform: scale(0.9);
+    color: #0052a3;
+}
+
 
 /* PIN TAGLINE HOVER START*/
 .email-icons .fa-thumbtack {
