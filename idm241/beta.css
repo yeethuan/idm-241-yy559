@@ -22,15 +22,12 @@ h4{
 }
 
 ul {
-    list-style-position: inside; 
-    padding-left: 0; 
     margin-left: 0; 
     text-align: left;
 }
 
 li {
     padding-left: 10px; 
-    margin-left: 0; 
     line-height: 1.25;
 }
 
@@ -219,14 +216,14 @@ header img {
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    display: none; /* Hide by default */
-    width: 400px; /* Fixed width for consistency */
+    display: none; 
+    width: 400px; 
 }
 
 .respond-popup h3 {
     margin: 0 0 15px;
     font-size: 18px;
-    color: #0078d4; /* Outlook blue */
+    color: #0078d4; 
 }
 
 .respond-popup label {
@@ -290,7 +287,7 @@ header img {
 /* Responsive Design */
 @media (max-width: 900px) {
     .inbox-container {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
         align-items: center;
         padding:0;
         margin-bottom: 10px;
