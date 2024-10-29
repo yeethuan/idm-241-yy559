@@ -68,6 +68,7 @@ header img {
 .email-container-wrapper {
     display: flex;
     flex-direction: column;
+    transition: all 0.5s ease; 
     gap: 10px;
 }
 
@@ -77,28 +78,77 @@ header img {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    transition: transform 0.5s ease;
+    transition: order 0.5s ease;
 }
 
 
 .slide-to-trash {
     transform: translateX(100%);
-    opacity: 0;
+    opacity: .5;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+/* Flagged email Active State START---------------------------------*/
+.email-icons .fa-flag {
+    color: #999;
+    transition: color 0.3s ease, border 0.3s ease;
+}
+
+.email-icons .fa-flag.active {
+    color: #d9534f; 
+    border-radius: 50%;
+    animation: shake 0.3s ease-in-out; 
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+/* Flagged email Active State END---------------------------------*/
+
+/* PINNED EMAIL ACTIVE STATE START*/
+.fa-thumbtack {
+    color: #ccc;
+    transition: color 0.2s ease;
+}
+
+.fa-thumbtack.active {
+    color: #0078d4; 
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {   
+        transform: translateY(-10px); 
+    }
+}
+
+.jump {
+    animation: jump 0.3s ease;
+}
+
 .move-to-top {
-    transform: translateY(-100%); 
-    transition: transform 0.5s ease;
+    transition: order 0.5s ease, transform 0.5s ease; 
+    position: relative;
 }
 
 .pinned {
     background-color: #ccdcff;
     border: 1px solid #0052df;
     order: -1;
+    z-index: 10;
 }
 
-/* Icons and Tooltips */
+
+/* PINNED EMAIL ACTIVE STATE END*/
+
+/* Icons and Tooltips -----------------------------------------*/
 .email-icons {
     display: flex;
     justify-content: center;
@@ -115,30 +165,149 @@ header img {
     color: #0078d4;
 }
 
-.email-icons .fa-trash:hover::after,
-.email-icons .fa-thumbtack:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #808080;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease-in-out;
-}
-.fa-thumbtack {
-    color: #ccc;
-    transition: color 0.3s ease;
+
+/* PIN TAGLINE HOVER START*/
+.email-icons .fa-thumbtack {
+    position: relative; 
 }
 
-.fa-thumbtack.active {
-    color: #0078d4; 
+.email-icons .fa-thumbtack::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
 }
+
+.email-icons .fa-thumbtack:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* PIN TAGLINE HOVER END*/
+
+/* FLAG TAGLINE HOVER START*/
+.email-icons .fa-flag {
+    position: relative; 
+}
+
+.email-icons .fa-flag::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-flag:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* FLAG TAGLINE HOVER END*/
+
+/* RESPOND TAGLINE HOVER START*/
+.email-icons .fa-envelope-open {
+    position: relative; 
+}
+
+.email-icons .fa-envelope-open::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-envelope-open:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* RESPOND TAGLINE HOVER END*/
+
+
+/* TRASH TAGLINE HOVER START*/
+.email-icons .fa-trash {
+    position: relative; 
+}
+
+.email-icons .fa-trash::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-trash:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* TRASH TAGLINE HOVER END*/
+
+/* HOVER TAGS FOR EACH ICON START*/
+.email-icons .fa-thumbtack::after {
+    content: "Pin this email";
+    text-transform: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-flag::after {
+    content: "Flag this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-envelope-open::after {
+    content: "Respond to email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-trash::after {
+    content: "Delete this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+/* HOVER TAGS FOR EACH ICON END*/
+
+/* ICONS AND TOOLTIPS END -----------------------------------------------------------------*/
+
+
+
+
+
 
 /* Undo Popup START*/
 .undo-popup {
@@ -171,24 +340,9 @@ header img {
 }
 
 .undo-popup #undoButton {
-    color: #0078d4;
+    color: #8abeff;
     cursor: pointer;
     font-weight: bold;
-}
-
-/* Grid Section */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 0 40px;
-}
-
-.grid-container div {
-    border: 1px solid #e9e9e9;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 /* UNDO POPUP EMAIL END */
 
@@ -206,31 +360,32 @@ header img {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: none; /* Hide by default */
-    width: 400px; /* Fixed width for consistency */
+    width: 600px; /* Fixed width for consistency */
 }
 
 .respond-popup h3 {
     margin: 0 0 15px;
     font-size: 18px;
-    color: #0078d4; /* Outlook blue */
+    color: #0078d4;
+    font-weight: 800;
 }
 
 .respond-popup label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: #616161;
     text-align: left;
 }
 
 .respond-popup input,
 .respond-popup textarea {
-    width: 100%;
+    width: 90%;
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(77, 77, 77, 0.1);
 }
 
 
@@ -256,8 +411,26 @@ header img {
 /* RESPOND EMAIL POPUP END */
 
 
+/* MICROINTERACTION ANALYSIS */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px;
+    margin-bottom: 10px;
+}
 
-/* Responsive Design */
+.grid-container div {
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* MICROINTERACTION ANALYSIS */
+
+
+
+/* Responsive Design -------------------------------------------------------------------------------------*/
 @media (max-width: 900px) {
     .inbox-container {
         flex-direction: column; /* Stack items vertically */
