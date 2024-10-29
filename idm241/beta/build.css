@@ -165,7 +165,19 @@ header img {
     color: #0078d4;
 }
 
-.email-icons .fa-thumbtack, .fa-flag, .fa-envelope-open, .fa-trash:active {
+.email-icons .fa-thumbtack:active {
+    transform: scale(0.9);
+}
+
+.email-icons .fa-flag:active {
+    transform: scale(0.9);
+}
+
+.email-icons .fa-envelope-open:active {
+    transform: scale(0.9);
+}
+
+.email-icons .fa-trash:active {
     transform: scale(0.9);
 }
 
