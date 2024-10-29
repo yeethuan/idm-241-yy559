@@ -1,33 +1,57 @@
 /* Universal styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f6fa;
-    color: #3a3a3a;
+    color: #636363;
     text-align: center;
 }
 
 h1{
-    font-family: Arial, sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 0;
     background-color: #f5f6fa;
-    color: #3a3a3a;
+    color: #6d6d6d;
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 ul {
     list-style-position: inside; 
     padding-left: 0; 
     margin-left: 0; 
-    text-align: left; aligned */
+    text-align: left;
 }
 
 li {
     padding-left: 10px; 
     margin-left: 0; 
     line-height: 1.25;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px 0;
+}
+
+/* head to outlook */
+a.styled-link {
+    background-color: #0078D4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+a.styled-link:hover, 
+a.styled-link:focus {
+    background-color: #005a9e; 
+    text-decoration: underline; 
 }
 
 
@@ -176,20 +200,6 @@ header img {
     font-weight: bold;
 }
 
-/* Grid Section */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 0 40px;
-}
-
-.grid-container div {
-    border: 1px solid #e9e9e9;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 /* UNDO POPUP EMAIL END */
 
 
@@ -255,6 +265,22 @@ header img {
 }
 /* RESPOND EMAIL POPUP END */
 
+
+/* MICROINTERACTION ANALYSIS GRID START*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px;
+}
+
+.grid-container div {
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* MICROINTERACTION ANALYSIS GRID END*/
 
 
 /* Responsive Design */
