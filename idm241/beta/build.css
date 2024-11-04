@@ -20,13 +20,11 @@ h1{
 ul {
     list-style-position: inside; 
     padding-left: 0; 
-    margin-left: 0; 
     text-align: left; aligned */
 }
 
 li {
     padding-left: 10px; 
-    margin-left: 0; 
     line-height: 1.25;
 }
 
