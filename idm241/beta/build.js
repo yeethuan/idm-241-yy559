@@ -53,7 +53,7 @@ document.getElementById('undoButton').addEventListener('click', undoDeleteEmail)
 
 
 // PIN EMAIL --------------------------------------------------------------------------------
-let pinnedEmail = null; 
+let pinnedEmail = null;  
 
 function handlePinEmail(event) {
     const emailContainer = event.target.closest('.email-container');
@@ -62,24 +62,28 @@ function handlePinEmail(event) {
     const isPinned = emailContainer.classList.toggle('pinned');
     pinIcon.classList.toggle('active', isPinned);
 
-
     if (isPinned) {
-        pinnedEmail = emailContainer;
-        emailContainer.style.order = '-1'; 
-        emailContainer.classList.add('move-to-top');
+        // Remove pinned class from any other email
+        if (pinnedEmail && pinnedEmail !== emailContainer) {
+            pinnedEmail.classList.remove('pinned');
+            pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
+            pinnedEmail.style.order = ''; // Reset order
+        }
 
+        // Set the current email as pinned
+        pinnedEmail = emailContainer;
+        emailContainer.style.order = '-1'; // Move to top
+
+        // Add the jump animation to the pin icon
         pinIcon.classList.add('jump');
-        
+
+        // Remove the jump class after animation
         setTimeout(() => {
             pinIcon.classList.remove('jump');
-
-            setTimeout(() => {
-                emailContainer.classList.remove('move-to-top');
-            }, 500);
         }, 400);
     } else {
         pinnedEmail = null;
-        emailContainer.style.order = ''; 
+        emailContainer.style.order = ''; // Reset order when unpinned
     }
 }
 
