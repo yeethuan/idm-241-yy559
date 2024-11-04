@@ -450,6 +450,31 @@ header img {
 
 
 
+/* button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px 0;
+}
+
+a.styled-link {
+    background-color: #0078D4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+a.styled-link:hover, 
+a.styled-link:focus {
+    background-color: #005a9e; 
+    text-decoration: underline; 
+}
+
+
 /* Responsive Design -------------------------------------------------------------------------------------*/
 @media (max-width: 900px) {
     .inbox-container {
