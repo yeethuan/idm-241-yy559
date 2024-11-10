@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="testing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFQ5loG5CAoGyP6YlF5b0/MVf4QxI8sZwVAx27" crossorigin="anonymous">
+    <title>Email Grid</title>
+</head>
+
+
+
+<body>
+
+        <!-- Sidebar Container -->
+        <div class="sidebar-container">
+            <h2>Folders</h2>
+            <ul>
+                <li>Trash <span class="trash-count">(0)</span></li>
+                <li>Inbox <span class="inbox-count">(5)</span></li>
+            </ul>
+        </div>
+    
+        <!-- Email Grid Wrapper -->
+        <div class="email-grid-wrapper">
+            <!-- Email Grid -->
+            <div class="email-grid">
+                <!-- Email Row 1 -->
+                <div class="email-row">
+                    <input type="checkbox">
+                    <i class="fas fa-star"></i>
+                    <span class="sender">John Doe</span>
+                    <span class="subject">Important Update on Project Timeline</span>
+                    <span class="snippet">Customize the layer everyone loves. Make your mark on our selection of styles...</span>
+                    <span class="date">Nov 10</span>
+                    
+                    <!-- Icons - hidden by default, visible on hover -->
+                    <div class="icon-container">
+                        <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
+                        <i class="fas fa-flag" data-tooltip="Flag this email"></i>
+                        <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
+                        <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
+                    </div>
+                </div>
+    
+                <!-- Additional Email Rows -->
+                <div class="email-row">
+                    <input type="checkbox">
+                    <i class="fas fa-star"></i>
+                    <span class="sender">John Doe</span>
+                    <span class="subject">New Feature Launch Next Week</span>
+                    <span class="snippet">Discover our latest features designed to enhance productivity...</span>
+                    <span class="date">Nov 9</span>
+                    
+                    <div class="icon-container">
+                        <i class="fas fa-thumbtack"></i>
+                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-envelope-open"></i>
+                        <i class="fas fa-trash delete-btn"></i>
+                    </div>
+                </div>
+    
+                <!-- Repeat for additional rows... -->
+            </div>
+        </div>
+    
+    </body>
+
+</body>
+</html>

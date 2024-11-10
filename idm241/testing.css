@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #3a3a3a;
+    margin: 0;
+}
+
+/* Sidebar START*/
+.sidebar-container {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    float: left;
+    height: 100vh;
+}
+
+.sidebar-container h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.sidebar-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-container li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+/* Sidebar END*/
+
+
+
+/* Email Grid */
+.email-grid-wrapper {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+.email-grid {
+    display: grid;
+    grid-template-columns: 40px 40px 100px 400px 500px 100px;
+    gap: 17px;
+    border-bottom: 1px solid #ddd;
+}
+
+.email-row {
+    display: contents;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+.email-row:hover {
+    background-color: #505050;
+}
+
+/* Show icon-container and hide date on hover */
+.email-row:hover .icon-container {
+    display: flex;
+}
+
+.email-row:hover .date {
+    display: none;
+}
+
+/* Icons - hidden by default, visible on hover */
+.icon-container {
+    display: none;
+    gap: 10px;
+    /* Positioning in place of the date */
+    grid-column: 6;
+    justify-content: flex-end;
+}
+
+.icon-container i {
+    cursor: pointer;
+    color: #666;
+}
+
+.email-grid input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.email-grid-wrapper .fa-star {
+    color: #363636;
+    cursor: pointer;
+}
+
+.email-grid-wrapper .fa-star.active {
+    color: #f0c420;
+}
+
+.sender,
+.subject,
+.snippet,
+.date {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
