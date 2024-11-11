@@ -16,17 +16,14 @@ function showUndoPopup() {
 }
 
 function handleDeleteEmail(event) {
-    const emailContainer = event.target.closest('.email-row');  // Changed to .email-row
+    const emailContainer = event.target.closest('.email-row');
     if (emailContainer) {
         emailContainer.classList.add('slide-to-trash');
 
-        // emailContainer.addEventListener('transitionend', () => {
-        //     emailContainer.style.display = 'none';
-        // }, { once: true });
 
         emailContainer.addEventListener('transitionend', () => {
-            emailContainer.classList.add('hidden'); // Add the hidden class after the slide animation
-            emailContainer.classList.remove('slide-to-trash'); // Remove slide class after hiding
+            emailContainer.classList.add('hidden'); 
+            emailContainer.classList.remove('slide-to-trash'); 
         }, { once: true });
 
         lastDeletedEmail = emailContainer;
@@ -37,12 +34,10 @@ function handleDeleteEmail(event) {
 }
 
 function undoDeleteEmail() {
-    // if (lastDeletedEmail) {
-    //     lastDeletedEmail.style.display = 'block';
-    //     lastDeletedEmail.classList.remove('slide-to-trash');
+
 
     if (lastDeletedEmail) {
-        lastDeletedEmail.classList.remove('hidden'); // Remove the hidden class
+        lastDeletedEmail.classList.remove('hidden');
         lastDeletedEmail.classList.remove('slide-to-trash');
 
 
