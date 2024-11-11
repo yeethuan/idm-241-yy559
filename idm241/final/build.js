@@ -16,12 +16,17 @@ function showUndoPopup() {
 }
 
 function handleDeleteEmail(event) {
-    const emailContainer = event.target.closest('.email-container'); 
+    const emailContainer = event.target.closest('.email-row');  // Changed to .email-row
     if (emailContainer) {
         emailContainer.classList.add('slide-to-trash');
 
+        // emailContainer.addEventListener('transitionend', () => {
+        //     emailContainer.style.display = 'none';
+        // }, { once: true });
+
         emailContainer.addEventListener('transitionend', () => {
-            emailContainer.style.display = 'none';
+            emailContainer.classList.add('hidden'); // Add the hidden class after the slide animation
+            emailContainer.classList.remove('slide-to-trash'); // Remove slide class after hiding
         }, { once: true });
 
         lastDeletedEmail = emailContainer;
@@ -32,14 +37,19 @@ function handleDeleteEmail(event) {
 }
 
 function undoDeleteEmail() {
+    // if (lastDeletedEmail) {
+    //     lastDeletedEmail.style.display = 'block';
+    //     lastDeletedEmail.classList.remove('slide-to-trash');
+
     if (lastDeletedEmail) {
-        lastDeletedEmail.style.display = 'block';
+        lastDeletedEmail.classList.remove('hidden'); // Remove the hidden class
         lastDeletedEmail.classList.remove('slide-to-trash');
+
 
         trashCount--;
         document.querySelector('.trash-count').innerText = `(${trashCount})`;
-        lastDeletedEmail = null;
 
+        lastDeletedEmail = null;
         clearTimeout(undoTimeout);
         document.getElementById('undoPopup').style.display = 'none';
     }
@@ -51,41 +61,74 @@ document.querySelectorAll('.delete-btn').forEach(button => {
 
 document.getElementById('undoButton').addEventListener('click', undoDeleteEmail);
 
-
 // PIN EMAIL --------------------------------------------------------------------------------
+
 let pinnedEmail = null;  
 
+
 function handlePinEmail(event) {
-    const emailContainer = event.target.closest('.email-container');
+    const emailContainer = event.target.closest('.email-row');  // Changed to .email-row
     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
 
     const isPinned = emailContainer.classList.toggle('pinned');
     pinIcon.classList.toggle('active', isPinned);
 
     if (isPinned) {
-        // Remove pinned class from any other email
         if (pinnedEmail && pinnedEmail !== emailContainer) {
             pinnedEmail.classList.remove('pinned');
             pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
             pinnedEmail.style.order = ''; // Reset order
         }
 
-        // Set the current email as pinned
         pinnedEmail = emailContainer;
-        emailContainer.style.order = '-1'; // Move to top
+        emailContainer.style.order = '-1';
 
-        // Add the jump animation to the pin icon
         pinIcon.classList.add('jump');
-
-        // Remove the jump class after animation
         setTimeout(() => {
             pinIcon.classList.remove('jump');
         }, 400);
     } else {
         pinnedEmail = null;
-        emailContainer.style.order = ''; // Reset order when unpinned
+        emailContainer.style.order = '';
     }
 }
+
+
+
+// // PIN EMAIL --------------------------------------------------------------------------------
+// let pinnedEmail = null;  
+
+// function handlePinEmail(event) {
+//     const emailRow = event.target.closest('.email-row');
+//     const pinIcon = emailRow.querySelector('.fa-thumbtack');
+
+//     const isPinned = emailRow.classList.toggle('pinned');
+//     pinIcon.classList.toggle('active', isPinned);
+
+//     if (isPinned) {
+//         // Remove pinned class from any other email
+//         if (pinnedEmail && pinnedEmail !== emailRow) {
+//             pinnedEmail.classList.remove('pinned');
+//             pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
+//             pinnedEmail.style.order = ''; // Reset order
+//         }
+
+//         // Set the current email as pinned
+//         pinnedEmail = emailRow;
+//         emailRow.style.order = '-1'; // Move to top
+
+//         // Add the jump animation to the pin icon
+//         pinIcon.classList.add('jump');
+
+//         // Remove the jump class after animation
+//         setTimeout(() => {
+//             pinIcon.classList.remove('jump');
+//         }, 400);
+//     } else {
+//         pinnedEmail = null;
+//         emailRow.style.order = ''; // Reset order when unpinned
+//     }
+// }
 
 document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
     pinIcon.addEventListener('click', handlePinEmail);

@@ -14,7 +14,7 @@ header img {
 
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f6fa;
@@ -60,23 +60,76 @@ body {
 .email-grid {
     display: grid;
     grid-template-columns: 40px 40px 100px 400px 500px 100px;
+    padding: 10px 10px;
     gap: 17px;
     border-bottom: 1px solid #ddd;
 }
 
 .email-row {
     display: contents;
-    align-items: center;
-    padding: 10px 0;
+    padding: 10px 10px;
     position: relative;
+    transition: order 0.5s ease;
 }
+
 
 .email-row:hover {
     background-color: #505050;
-
 }
 
-/* Show icon-container and hide date on hover */
+.slide-to-trash {
+    display: none;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.hidden-row {
+    visibility: hidden; /* Instead of display: none */
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+/* PINNED EMAIL ACTIVE STATE START*/
+.fa-thumbtack {
+    color: #ccc;
+    transition: color 0.2s ease;
+}
+
+.fa-thumbtack.active {
+    color: #0078d4; 
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {   
+        transform: translateY(-10px); 
+    }
+}
+
+.jump {
+    animation: jump 0.3s ease;
+}
+
+.move-to-top {
+    transition: order 0.5s ease, transform 0.5s ease; 
+    position: relative;
+}
+
+.pinned {
+    background-color: #ccdcff;
+    border: 1px solid #0052df;
+    order: -1;
+    z-index: 10;
+}
+/* PINNED EMAIL ACTIVE STATE END*/
+
+
+/* Icons - hidden by default, visible on hover; positioning in place of the date START -----------------------------------------------------*/
 .email-row:hover .icon-container {
     display: flex;
 }
@@ -85,20 +138,80 @@ body {
     display: none;
 }
 
-/* Icons - hidden by default, visible on hover */
 .icon-container {
     display: none;
     gap: 20px;
-    /* Positioning in place of the date */
     grid-column: 6;
     justify-content: flex-end;
 }
 
+
 .icon-container i {
+    font-size: 18px;
+    color: #999;
     cursor: pointer;
-    color: #666;
 }
 
+.icon-container i:hover {
+    color: #0078d4;
+}
+
+.icon-container .fa-thumbtack:active {
+    transform: scale(0.9);
+}
+
+.icon-container .fa-flag:active {
+    transform: scale(0.9);
+}
+
+.icon-container .fa-envelope-open:active {
+    transform: scale(0.9);
+}
+
+.icon-container .fa-trash:active {
+    transform: scale(0.9);
+}
+
+/* Icons - hidden by default, visible on hover; positioning in place of the date END -----------------------------------------------------*/
+
+/* Undo Popup START*/
+.undo-popup {
+    position: fixed;
+    bottom: -35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    z-index: 800;
+    text-align: center;
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 20px;
+        opacity: 1;
+    }
+}
+
+.undo-popup.show {
+    animation: slideUp 0.5s ease forwards;
+    opacity: 1;
+}
+
+.undo-popup #undoButton {
+    color: #8abeff;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* UNDO POPUP EMAIL END */
+
+/* Checkbox + Star Start*/
 .email-grid input[type="checkbox"] {
     margin: 0;
     cursor: pointer;
@@ -112,6 +225,8 @@ body {
 .email-grid-wrapper .fa-star-o.active {
     fill-opacity: #f0c420;
 }
+/* Checkbox + Star End*/
+
 
 .sender,
 .subject,
