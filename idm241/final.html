@@ -1,1 +1,100 @@
-final
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="beta.css">
+    <script src="https://kit.fontawesome.com/f4cf6f4ce3.js" crossorigin="anonymous"></script>
+    <title>Beta</title>
+</head>
+
+<body>
+    <h1>Beta Build</h1>
+        
+    <!-- Sidebar and Emails Container -->
+    <div class="inbox-container">
+        <aside class="sidebar">
+            <h2>Folders</h2>
+            <ul>
+                <li>Trash <span class="trash-count">(0)</span></li>
+            </ul>
+        </aside>
+
+        <section class="email-container-wrapper">
+            <!-- email containers with icons -->
+            <div class="email-container">
+                <div class="email-header">
+                    <p><strong>Sender:</strong> john.doe@example.com</p>
+                    <p><strong>Subject:</strong> Project Update</p>
+                </div>
+                <div class="email-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis vel sapien nec...</p>
+                </div>
+                <div class="icons email-icons">
+                    <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
+                    <i class="fas fa-flag" data-tooltip="Flag this email"></i>
+                    <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
+                    <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
+                </div>
+            </div>
+
+            <div class="email-container">
+                <div class="email-header">
+                    <p><strong>Sender:</strong> jane.smith@example.com</p>
+                    <p><strong>Subject:</strong> Meeting Reminder</p>
+                </div>
+                <div class="email-content">
+                    <p>Don’t forget our meeting scheduled for tomorrow at 10 AM. Please let me know if you need...</p>
+                </div>
+                <div class="icons email-icons">
+                    <i class="fas fa-thumbtack"></i>
+                    <i class="fas fa-flag"></i>
+                    <i class="fas fa-envelope-open"></i>
+                    <i class="fas fa-trash delete-btn"></i>
+                </div>
+            </div>
+
+            <div class="email-container">
+                <div class="email-header">
+                    <p><strong>Sender:</strong> marketing.team@example.com</p>
+                    <p><strong>Subject:</strong> Weekly Newsletter</p>
+                </div>
+                <div class="email-content">
+                    <p>Welcome to our weekly newsletter! Here’s what’s new this week...</p>
+                </div>
+                <div class="icons email-icons">
+                    <i class="fas fa-thumbtack"></i>
+                    <i class="fas fa-flag"></i>
+                    <i class="fas fa-envelope-open"></i>
+                    <i class="fas fa-trash delete-btn"></i>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Undo Popup -->
+    <div class="undo-popup" id="undoPopup" style="display: none;">
+        <p>Email deleted. <span id="undoButton">Undo</span></p>
+    </div>
+
+    <!-- Respond Popup -->
+    <div class="respond-popup" id="respondPopup" style="display: none;">
+        <h3>Respond to Email</h3>
+        <label for="recipient">To:</label>
+        <input type="text" id="recipient" placeholder="Recipient email">
+        
+        <label for="cc">Subject:</label>
+        <input type="text" id="cc" placeholder="CC email">
+
+        <label for="responseText">Message:</label>
+        <textarea id="responseText" rows="5" placeholder="Type your response here..."></textarea>
+        
+        <div class="popup-buttons">
+            <button id="sendResponse">Send</button>
+            <button id="closePopup">Cancel</button>
+        </div>
+    </div>
+
+    </body>
+
+</html>
