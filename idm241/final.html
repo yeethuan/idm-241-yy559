@@ -1,73 +1,522 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="testing.css">
-    <script src="https://kit.fontawesome.com/f4cf6f4ce3.js" crossorigin="anonymous"></script>
-    <title>Email Grid</title>
+    <link rel="stylesheet" href="beta.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Beta</title>
 </head>
 
-
-
 <body>
-
     <header>
         <img src="media/outlook-logo.png" alt="Outlook Logo">
     </header>
 
-        <!-- Sidebar Container -->
-        <div class="sidebar-container">
-            <h2>Folders</h2>
-            <ul>
-                <li>Trash <span class="trash-count">(0)</span></li>
-                <li>Inbox <span class="inbox-count">(5)</span></li>
-            </ul>
-        </div>
-    
-        <!-- Email Grid Wrapper -->
-        <div class="email-grid-wrapper">
-            <!-- Email Grid -->
-            <div class="email-grid">
-                <!-- Email Row 1 -->
-                <div class="email-row">
-                    <input type="checkbox">
-                    <i class="fa fa-star-o"></i>
-                    <span class="sender">John Doe</span>
-                    <span class="subject">Important Update on Project Timeline</span>
-                    <span class="snippet">Customize the layer everyone loves. Make your mark on our selection of styles...</span>
-                    <span class="date">Nov 10</span>
-                    
-                    <!-- Icons - hidden by default, visible on hover -->
-                    <div class="icon-container">
-                        <i class="fas fa-flag" data-tooltip="Flag this email"></i>
-                        <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
-                        <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
-                        <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
-                    </div>
-                </div>
-    
-                <!-- Additional Email Rows -->
-                <div class="email-row">
-                    <input type="checkbox">
-                    <i class="fa fa-star-o"></i>
-                    <span class="sender">John Doe</span>
-                    <span class="subject">New Feature Launch Next Week</span>
-                    <span class="snippet">Discover our latest features designed to enhance productivity...</span>
-                    <span class="date">Nov 9</span>
-                    
-                    <div class="icon-container">
-                        <i class="fas fa-flag" data-tooltip="Flag this email"></i>
-                        <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
-                        <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
-                        <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
-                    </div>
-                </div>
-    
-                <!-- Repeat for additional rows... -->
-            </div>
-        </div>
-    
-    </body>
+    <div class="button-container">
+        <a href="https://outlook.office.com/mail/" class="styled-link" target="blank">HEAD TO OUTLOOK</a>
+    </div>
 
+    <main>
+        <h1>Microsoft Outlook Microinteractions: Beta</h1>
+        <!-- Triggers, Rules, Feedback, and Modes Container -->
+        <section class="grid-container">
+            <div>
+                <h3>TRIGGERS</h3>
+                <h4>Pin Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>3 second delay</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
+                </ul>
+                <h4>Pin Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>3 second delay</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
+                </ul>
+                <h4>Flag Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>3 second delay</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
+                </ul>
+                <h4>Flag Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>3 second delay</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
+                </ul>
+                <h4>Response Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>3 second delay</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
+                </ul>
+                <h4>Trash Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>3 second delay</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>
+                </ul>
+            </div>
+
+            <!-- RULES -->
+            <div>
+                <h3>RULES</h3>
+                <!-- PIN RULES -->
+                <h4>Pin Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay “Pin this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>“Pin this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Email-container turns light blue</li>
+                            <li>Email-container outline turns dark blue</li>
+                            <li>Icon jumps</li>
+                            <li>Icon remains blue for ACTIVE state</li>
+                            <li>Database record set to TRUE</li>
+                            <li>Email-container is moved to the top of the Emails</li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Pin Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>3s delay “Unpin this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>“Unpin this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Email-container returns color white</li>
+                            <li>Email-container outline returns to gray</li>
+                            <li>Icon returns to color gray</li>
+                            <li>Database record set to FALSE</li>
+                            <li>Email-container is returned to its original location</li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- FLAG RULES -->
+                <h4>Flag Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay “Flag this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>“Flag this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                            <li>Icon shakes 2</li>
+                            <li>Icon turns red</li>
+                            <li>3s delay "Unflag this email" appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Database record set to TRUE</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Flag Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>3s delay “Unflag this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>“Unflag this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                            <li>Icon turns blue</li>
+                            <li>3s delay "Flag this email" appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Database record set to FALSE</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Response Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay Respond to email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>3s delay “Respond to email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Modal of input boxes appears to respond to email which includes respond and cancel button that close out the modal</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Trash Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay "Delete this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>3s delay “Delete this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Email slides to the right and disappears</li>
+                            <li>Database record set to FALSE</li>
+                            <li>Trash number set to n+1</li>
+                            <li>Trash database set to n+1</li>
+                            <li>A popup appears at the bottom of the page confirming the email has been deleted, with an “Undo” button that causes the deleted email to reappear when triggered </li>
+                            <li>Popup fades away after 5s of inaction </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>FEEDBACK</h3>
+                <h4>Pin Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay “Pin this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>“Pin this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Email-container turns light blue</li>
+                            <li>Email-container outline turns dark blue</li>
+                            <li>Icon jumps</li>
+                            <li>Icon remains blue for ACTIVE state</li>
+                            <li>Email-container is moved to the top of the Emails</li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Pin Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>3s delay “Unpin this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>“Unpin this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Email-container returns color white</li>
+                            <li>Email-container outline returns to gray</li>
+                            <li>Icon returns to color gray</li>
+                            <li>Email-container is returned to its original location</li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Flag Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay “Flag this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>“Flag this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                            <li>Icon shakes 2</li>
+                            <li>Icon turns red</li>
+                            <li>3s delay "Unflag this email" appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Flag Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>3s delay “Unflag this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>“Unflag this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                            <li>Icon turns blue</li>
+                            <li>3s delay "Flag this email" appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Response Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay Respond to email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>3s delay “Respond to email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Modal of input boxes appears to respond to email</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Trash Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay "Delete this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>3s delay “Delete this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Email slides to the right and disappears</li>
+                            <li>Trash number set to n+1</li>
+                            <li>A popup appears at the bottom of the page confirming the email has been deleted, with an “Undo” button that causes the deleted email to reappear when triggered </li>
+                            <li>Popup fades away after 5s of inaction </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>LOOPS &amp; MODES</h3>
+                <h4>Pin Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Pin Button MODES</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+                <h4>Flag Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Flag Button MODES</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+                <h4>Response Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Response Button MODES</h4>
+                <ul>
+                    <li>Modal of input boxes appears to respond to email which includes respond and cancel button that close out the modal</li>
+                </ul>
+
+                <h4>Trash Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Trash Button MODES</h4>
+                <ul>
+                    <li>A popup appears at the bottom of the page confirming the email has been deleted, with an “Undo” button that causes the deleted email to reappear when triggered</li>
+                </ul>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="video-container">
+        <video style="width:100%; max-width: 1000px; height:auto; border-radius: 15px; margin-top: 10px;" controls>
+            <source src="media/outlook-betavid.mp4" type="video/mp4" alt="outlook-betavideo">
+        </video>
+    </div>
+
+    <div class="button-container">
+        <a href="https://yy559.netlify.app/idm241/beta/build.html" class="styled-link" target="blank">build</a>
+    </div>
 </body>
 </html>
