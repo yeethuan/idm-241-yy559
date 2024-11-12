@@ -221,10 +221,15 @@ body {
 .email-grid-wrapper .fa-star-o {
     outline: #555555;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .email-grid-wrapper .fa-star-o.active {
-    fill-opacity: #f0c420;
+    color: #f0c420;
+}
+
+.email-grid-wrapper .fa-star.active {
+    color: #f0c420;
 }
 /* Checkbox + Star End*/
 

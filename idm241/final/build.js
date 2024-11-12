@@ -34,12 +34,11 @@ function handleDeleteEmail(event) {
 }
 
 function undoDeleteEmail() {
-
-
     if (lastDeletedEmail) {
-        lastDeletedEmail.classList.remove('hidden');
-        lastDeletedEmail.classList.remove('slide-to-trash');
+        lastDeletedEmail.classList.remove('slide-to-trash', 'hidden-row');
 
+        lastDeletedEmail.style.display = 'flex';
+        lastDeletedEmail.style.opacity = '1';
 
         trashCount--;
         document.querySelector('.trash-count').innerText = `(${trashCount})`;
@@ -50,11 +49,13 @@ function undoDeleteEmail() {
     }
 }
 
+// Add event listeners
 document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', handleDeleteEmail);
 });
 
 document.getElementById('undoButton').addEventListener('click', undoDeleteEmail);
+
 
 // PIN EMAIL --------------------------------------------------------------------------------
 
@@ -147,6 +148,18 @@ document.querySelectorAll('.fa-flag').forEach(flag => {
     });
 });
 
+// STAR EMAIL
+document.querySelectorAll('.fa-star-o').forEach(starIcon => {
+    starIcon.addEventListener('click', () => {
+        if (starIcon.classList.contains('fa-star-o')) {
+            starIcon.classList.remove('fa-star-o');
+            starIcon.classList.add('fa-star', 'active'); // Change to filled star
+        } else {
+            starIcon.classList.remove('fa-star', 'active');
+            starIcon.classList.add('fa-star-o'); // Change back to outline star
+        }
+    });
+});
 
 // RESPOND EMAIL --------------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
