@@ -54,36 +54,38 @@ document.getElementById('undoButton').addEventListener('click', undoDeleteEmail)
 
 
 // PIN EMAIL --------------------------------------------------------------------------------
-
-// let pinnedEmail = null;  
-
-
+// // Handle pinning emails
 // function handlePinEmail(event) {
-//     const emailContainer = event.target.closest('.email-row');  // Changed to .email-row
+//     const emailContainer = event.target.closest('.email-row'); 
 //     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
-
+    
 //     const isPinned = emailContainer.classList.toggle('pinned');
 //     pinIcon.classList.toggle('active', isPinned);
 
 //     if (isPinned) {
-//         if (pinnedEmail && pinnedEmail !== emailContainer) {
-//             pinnedEmail.classList.remove('pinned');
-//             pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
-//             pinnedEmail.style.order = ''; // Reset order
-//         }
-
-//         pinnedEmail = emailContainer;
-//         emailContainer.style.order = '-1';
-
-//         pinIcon.classList.add('jump');
-//         setTimeout(() => {
-//             pinIcon.classList.remove('jump');
-//         }, 400);
+//         // Add to pinnedEmails array and move to the top
+//         pinnedEmails.push(emailContainer);
 //     } else {
-//         pinnedEmail = null;
-//         emailContainer.style.order = '';
+//         // Remove from pinnedEmails array if unpinned
+//         pinnedEmails = pinnedEmails.filter(item => item !== emailContainer);
 //     }
+
+//     // Update the order of pinned emails
+//     updatePinnedEmailOrder();
 // }
+
+// // Update the order for all pinned emails
+// function updatePinnedEmailOrder() {
+//     pinnedEmails.forEach((email, index) => {
+//         email.style.order = `-${index + 1}`; // Negative order keeps them at the top
+//     });
+// }
+
+// // Attach the event listener to all pin icons
+// document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
+//     pinIcon.addEventListener('click', handlePinEmail);
+// });
+// -------------------------------------------------
 
 let pinnedEmails = []; // Array to store pinned emails
 
