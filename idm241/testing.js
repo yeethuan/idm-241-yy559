@@ -16,14 +16,12 @@ function showUndoPopup() {
 }
 
 function handleDeleteEmail(event) {
-    const emailContainer = event.target.closest('.email-row');
+    const emailContainer = event.target.closest('.email-container'); 
     if (emailContainer) {
         emailContainer.classList.add('slide-to-trash');
 
-
         emailContainer.addEventListener('transitionend', () => {
-            emailContainer.classList.add('hidden-row'); 
-            emailContainer.classList.remove('slide-to-trash'); 
+            emailContainer.style.display = 'none';
         }, { once: true });
 
         lastDeletedEmail = emailContainer;
@@ -35,17 +33,18 @@ function handleDeleteEmail(event) {
 
 function undoDeleteEmail() {
     if (lastDeletedEmail) {
-        lastDeletedEmail.classList.remove('slide-to-trash', 'hidden-row'); // Removes hidden-row to make visible again
+        lastDeletedEmail.style.display = 'block';
+        lastDeletedEmail.classList.remove('slide-to-trash');
+
         trashCount--;
         document.querySelector('.trash-count').innerText = `(${trashCount})`;
-
         lastDeletedEmail = null;
+
         clearTimeout(undoTimeout);
         document.getElementById('undoPopup').style.display = 'none';
     }
 }
 
-// Add event listeners
 document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', handleDeleteEmail);
 });
@@ -54,87 +53,43 @@ document.getElementById('undoButton').addEventListener('click', undoDeleteEmail)
 
 
 // PIN EMAIL --------------------------------------------------------------------------------
-
-// let pinnedEmail = null;  
-
-
-// function handlePinEmail(event) {
-//     const emailContainer = event.target.closest('.email-row');  // Changed to .email-row
-//     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
-
-//     const isPinned = emailContainer.classList.toggle('pinned');
-//     pinIcon.classList.toggle('active', isPinned);
-
-//     if (isPinned) {
-//         if (pinnedEmail && pinnedEmail !== emailContainer) {
-//             pinnedEmail.classList.remove('pinned');
-//             pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
-//             pinnedEmail.style.order = ''; // Reset order
-//         }
-
-//         pinnedEmail = emailContainer;
-//         emailContainer.style.order = '-1';
-
-//         pinIcon.classList.add('jump');
-//         setTimeout(() => {
-//             pinIcon.classList.remove('jump');
-//         }, 400);
-//     } else {
-//         pinnedEmail = null;
-//         emailContainer.style.order = '';
-//     }
-// }
-
-let pinnedEmails = []; // Array to store pinned emails
+let pinnedEmail = null;  
 
 function handlePinEmail(event) {
-    const emailContainer = event.target.closest('.email-row'); 
+    const emailContainer = event.target.closest('.email-container');
     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
-    
+
     const isPinned = emailContainer.classList.toggle('pinned');
     pinIcon.classList.toggle('active', isPinned);
 
     if (isPinned) {
-        // If pinned, add the email to the pinnedEmails array
-        pinnedEmails.push(emailContainer);
-        emailContainer.style.order = `-${pinnedEmails.length}`; // Move it to the top
-    } else {
-        // If unpinned, remove it from the array
-        pinnedEmails = pinnedEmails.filter(item => item !== emailContainer);
-        emailContainer.style.order = ''; // Reset order when unpinned
+        // Remove pinned class from any other email
+        if (pinnedEmail && pinnedEmail !== emailContainer) {
+            pinnedEmail.classList.remove('pinned');
+            pinnedEmail.querySelector('.fa-thumbtack').classList.remove('active');
+            pinnedEmail.style.order = ''; // Reset order
+        }
 
-        // Recalculate order for remaining pinned emails
-        pinnedEmails.forEach((pinnedEmail, index) => {
-            pinnedEmail.style.order = `-${index + 1}`;
-        });
+        // Set the current email as pinned
+        pinnedEmail = emailContainer;
+        emailContainer.style.order = '-1'; // Move to top
+
+        // Add the jump animation to the pin icon
+        pinIcon.classList.add('jump');
+
+        // Remove the jump class after animation
+        setTimeout(() => {
+            pinIcon.classList.remove('jump');
+        }, 400);
+    } else {
+        pinnedEmail = null;
+        emailContainer.style.order = ''; // Reset order when unpinned
     }
 }
 
-// Attach the event listener to all pin icons
 document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
     pinIcon.addEventListener('click', handlePinEmail);
 });
-// -------------------------------------------------------------------------------------------------------------
-
-
-
-
-// Set up event listeners for each email row's icons
-document.addEventListener('DOMContentLoaded', () => {
-    // Delete button event listeners
-    document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', handleDeleteEmail);
-    });
-
-    // Pin button event listeners
-    document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
-        pinIcon.addEventListener('click', handlePinEmail);
-    });
-
-    // Undo button event listener
-    document.getElementById('undoButton').addEventListener('click', undoDeleteEmail);
-});
-
 
 
 // FLAG EMAIL --------------------------------------------------------------------------------
@@ -144,18 +99,6 @@ document.querySelectorAll('.fa-flag').forEach(flag => {
     });
 });
 
-// STAR EMAIL
-document.querySelectorAll('.fa-star-o').forEach(starIcon => {
-    starIcon.addEventListener('click', () => {
-        if (starIcon.classList.contains('fa-star-o')) {
-            starIcon.classList.remove('fa-star-o');
-            starIcon.classList.add('fa-star', 'active'); // Change to filled star
-        } else {
-            starIcon.classList.remove('fa-star', 'active');
-            starIcon.classList.add('fa-star-o'); // Change back to outline star
-        }
-    });
-});
 
 // RESPOND EMAIL --------------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {

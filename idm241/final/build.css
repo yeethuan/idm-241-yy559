@@ -86,7 +86,8 @@ body {
 }
 
 .hidden-row {
-    visibility: hidden; /* Instead of display: none */
+    /* visibility: hidden; */
+    display: none;
     opacity: 0;
     pointer-events: none;
 }
@@ -228,9 +229,6 @@ body {
     color: #f0c420;
 }
 
-.email-grid-wrapper .fa-star.active {
-    color: #f0c420;
-}
 /* Checkbox + Star End*/
 
 

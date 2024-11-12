@@ -1,0 +1,539 @@
+/* Universal styling */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f6fa;
+    color: #3a3a3a;
+    text-align: center;
+}
+
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    background-color: #f5f6fa;
+    color: #3a3a3a;
+    text-align: center;
+    font-weight: 600;
+}
+
+ul {
+    list-style-position: inside; 
+    text-align: left;
+}
+
+li {
+    line-height: 1.25;
+}
+
+
+/* Header styling */
+header {
+    padding: 10px 20px;
+    background-color: #0078d4;
+    text-align: right;
+}
+
+header img {
+    max-width: 30px;
+    height: auto;
+}
+
+/* Sidebar and Email Container Styling */
+.inbox-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #0078d4;
+    color: white;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.email-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease; 
+    gap: 10px;
+}
+
+.email-container {
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: order 0.5s ease;
+}
+
+
+.slide-to-trash {
+    transform: translateX(100%);
+    opacity: .5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Flagged email Active State START---------------------------------*/
+.email-icons .fa-flag {
+    color: #999;
+    transition: color 0.3s ease, border 0.3s ease;
+}
+
+.email-icons .fa-flag.active {
+    color: #d9534f; 
+    border-radius: 50%;
+    animation: shake 0.3s ease-in-out; 
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+/* Flagged email Active State END---------------------------------*/
+
+/* PINNED EMAIL ACTIVE STATE START*/
+.fa-thumbtack {
+    color: #ccc;
+    transition: color 0.2s ease;
+}
+
+.fa-thumbtack.active {
+    color: #0078d4; 
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {   
+        transform: translateY(-10px); 
+    }
+}
+
+.jump {
+    animation: jump 0.3s ease;
+}
+
+.move-to-top {
+    transition: order 0.5s ease, transform 0.5s ease; 
+    position: relative;
+}
+
+.pinned {
+    background-color: #ccdcff;
+    border: 1px solid #0052df;
+    order: -1;
+    z-index: 10;
+}
+
+
+/* PINNED EMAIL ACTIVE STATE END*/
+
+
+/* star icon */
+.email-icons .fa-star-o {
+    outline: #555555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.email-icons .fa-star-o.active {
+    color: #f0c420;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+/* star icon end */
+
+/* Icons and Tooltips -----------------------------------------*/
+.email-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.email-icons i {
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
+
+.email-icons i:hover {
+    color: #0078d4;
+}
+
+.email-icons .fa-thumbtack:active {
+    transform: scale(0.9);
+}
+
+.email-icons .fa-flag:active {
+    transform: scale(0.9);
+}
+
+.email-icons .fa-envelope-open:active {
+    transform: scale(0.9);
+}
+
+.email-icons .fa-trash:active {
+    transform: scale(0.9);
+}
+
+
+/* PIN TAGLINE HOVER START*/
+.email-icons .fa-thumbtack {
+    position: relative; 
+}
+
+.email-icons .fa-thumbtack::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-thumbtack:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* PIN TAGLINE HOVER END*/
+
+/* FLAG TAGLINE HOVER START*/
+.email-icons .fa-flag {
+    position: relative; 
+}
+
+.email-icons .fa-flag::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-flag:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* FLAG TAGLINE HOVER END*/
+
+/* RESPOND TAGLINE HOVER START*/
+.email-icons .fa-envelope-open {
+    position: relative; 
+}
+
+.email-icons .fa-envelope-open::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-envelope-open:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* RESPOND TAGLINE HOVER END*/
+
+
+/* TRASH TAGLINE HOVER START*/
+.email-icons .fa-trash {
+    position: relative; 
+}
+
+.email-icons .fa-trash::after {
+    position: absolute;
+    bottom: 150%; 
+    left: 60%;
+    transform: translateX(-60%);
+    background-color: #686868;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20; 
+}
+
+.email-icons .fa-trash:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/* TRASH TAGLINE HOVER END*/
+
+/* HOVER TAGS FOR EACH ICON START*/
+.email-icons .fa-thumbtack::after {
+    content: "Pin this email";
+    text-transform: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-thumbtack.active::after {
+    content: "Unpin this email"; 
+}
+
+.email-icons .fa-flag::after {
+    content: "Flag this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-flag.active::after {
+    content: "Unflag this email"; 
+}
+
+.email-icons .fa-envelope-open::after {
+    content: "Respond to email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-trash::after {
+    content: "Delete this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+/* HOVER TAGS FOR EACH ICON END*/
+
+/* ICONS AND TOOLTIPS END -----------------------------------------------------------------*/
+
+
+
+
+
+
+/* Undo Popup START*/
+.undo-popup {
+    position: fixed;
+    bottom: -35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    z-index: 800;
+    text-align: center;
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 20px;
+        opacity: 1;
+    }
+}
+
+.undo-popup.show {
+    animation: slideUp 0.5s ease forwards;
+    opacity: 1;
+}
+
+.undo-popup #undoButton {
+    color: #8abeff;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* UNDO POPUP EMAIL END */
+
+
+/* RESPOND EMAIL POPUP START*/
+.respond-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* Hide by default */
+    width: 600px; /* Fixed width for consistency */
+}
+
+.respond-popup h3 {
+    margin: 0 0 15px;
+    font-size: 18px;
+    color: #0078d4;
+    font-weight: 800;
+}
+
+.respond-popup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #616161;
+    text-align: left;
+}
+
+.respond-popup input,
+.respond-popup textarea {
+    width: 90%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(77, 77, 77, 0.1);
+}
+
+
+.popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.respond-popup button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0078d4;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.respond-popup button:hover {
+    background-color: #0052a3;
+}
+/* RESPOND EMAIL POPUP END */
+
+
+/* MICROINTERACTION ANALYSIS */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px;
+    margin-bottom: 10px;
+}
+
+.grid-container div {
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* MICROINTERACTION ANALYSIS */
+
+
+
+/* button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px 0;
+}
+
+a.styled-link {
+    background-color: #0078D4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+a.styled-link:hover, 
+a.styled-link:focus {
+    background-color: #005a9e; 
+    text-decoration: underline; 
+}
+
+
+/* Responsive Design -------------------------------------------------------------------------------------*/
+@media (max-width: 900px) {
+    .inbox-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        padding:0;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .sidebar {
+        margin-bottom: 20px;
+        display: block;
+        padding:0px;
+        margin-right: 0px;
+    }
+
+
+    .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .inbox-container {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .email-container {
+        padding: 15px;
+    }
+
+    .email-icons i {
+        font-size: 16px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        padding-bottom: 10px;
+    }
+}

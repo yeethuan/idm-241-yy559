@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="testing.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Final Description</title>
+    <title>Final Build Testing</title>
 </head>
 
 <body>
@@ -13,12 +13,73 @@
         <img src="media/outlook-logo.png" alt="Outlook Logo">
     </header>
 
-    <div class="button-container">
-        <a href="https://outlook.office.com/mail/" class="styled-link" target="blank">HEAD TO OUTLOOK</a>
-    </div>
-
     <main>
-        <h1>Microsoft Outlook Microinteractions: Beta</h1>
+        <h1>Final Build</h1>
+        
+        <!-- Sidebar and Emails Container -->
+        <div class="inbox-container">
+            <aside class="sidebar">
+                <h2>Folders</h2>
+                <ul>
+                    <li>Trash <span class="trash-count">(0)</span></li>
+                </ul>
+            </aside>
+
+            <section class="email-container-wrapper">
+                <!-- email containers with icons -->
+                <div class="email-container">
+                    <div class="icons email-icons">
+                        <i class="fas fa-star-o" data tookltip="Star this email"></i>
+                        <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
+                        <i class="fas fa-flag" data-tooltip="Flag this email"></i>
+                        <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
+                        <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
+                    </div>
+                </div>
+                <div class="email-container">
+                    <div class="icons email-icons">
+                        <i class="fas fa-star-o" data tookltip="Star this email"></i>
+                        <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
+                        <i class="fas fa-flag" data-tooltip="Flag this email"></i>
+                        <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
+                        <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
+                    </div>
+                </div>
+                <div class="email-container">
+                    <div class="icons email-icons">
+                        <i class="fas fa-star-o" data tookltip="Star this email"></i>
+                        <i class="fas fa-thumbtack" data-tooltip="Pin this email"></i>
+                        <i class="fas fa-flag" data-tooltip="Flag this email"></i>
+                        <i class="fas fa-envelope-open" data-tooltip="Respond to email"></i>
+                        <i class="fas fa-trash delete-btn" data-tooltip="Delete this email"></i>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Undo Popup -->
+        <div class="undo-popup" id="undoPopup" style="display: none;">
+            <p>Email deleted. <span id="undoButton">Undo</span></p>
+        </div>
+
+        <!-- RESPOND POPUP -->
+        <div class="respond-popup" id="respondPopup" style="display: none;">
+            <h3>Respond to Email</h3>
+        <label for="recipient">To:</label>
+        <input type="text" id="recipient" placeholder="Recipient email">
+        
+        <label for="cc">Subject:</label>
+        <input type="text" id="cc" placeholder="CC email">
+
+        <label for="responseText">Message:</label>
+        <textarea id="responseText" rows="5" placeholder="Type your response here..."></textarea>
+        
+        <div class="popup-buttons">
+            <button id="sendResponse">Send</button>
+            <button id="closePopup">Cancel</button>
+        </div>
+            </div>
+
         <!-- Triggers, Rules, Feedback, and Modes Container -->
         <section class="grid-container">
             <div>
@@ -509,10 +570,10 @@
         </section>
     </main>
 
-    <div class="video-container">
-        <video style="width:100%; max-width: 1000px; height:auto; border-radius: 15px; margin-top: 10px;" controls>
-            <source src="media/outlook-betavid.mp4" type="video/mp4" alt="outlook-betavideo">
-        </video>
+    <div class="button-container">
+        <a href="https://yy559.netlify.app/idm241/beta.html" class="styled-link" target="blank">beta</a>
     </div>
+
+    <script src="build.js" defer></script>
 </body>
 </html>
