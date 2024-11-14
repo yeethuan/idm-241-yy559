@@ -229,6 +229,11 @@ body {
     color: #f0c420;
 }
 
+.email-grid-wrapper .fa-star.active {
+    color: #f0c420;
+    cursor: pointer;
+}
+
 /* Checkbox + Star End*/
 
 
