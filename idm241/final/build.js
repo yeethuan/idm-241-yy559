@@ -54,41 +54,7 @@ document.getElementById('undoButton').addEventListener('click', undoDeleteEmail)
 
 
 // PIN EMAIL --------------------------------------------------------------------------------
-// // Handle pinning emails
-// function handlePinEmail(event) {
-//     const emailContainer = event.target.closest('.email-row'); 
-//     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
-    
-//     const isPinned = emailContainer.classList.toggle('pinned');
-//     pinIcon.classList.toggle('active', isPinned);
-
-//     if (isPinned) {
-//         // Add to pinnedEmails array and move to the top
-//         pinnedEmails.push(emailContainer);
-//     } else {
-//         // Remove from pinnedEmails array if unpinned
-//         pinnedEmails = pinnedEmails.filter(item => item !== emailContainer);
-//     }
-
-//     // Update the order of pinned emails
-//     updatePinnedEmailOrder();
-// }
-
-// // Update the order for all pinned emails
-// function updatePinnedEmailOrder() {
-//     pinnedEmails.forEach((email, index) => {
-//         email.style.order = `-${index + 1}`; // Negative order keeps them at the top
-//     });
-// }
-
-// // Attach the event listener to all pin icons
-// document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
-//     pinIcon.addEventListener('click', handlePinEmail);
-// });
-// -------------------------------------------------
-
-let pinnedEmails = []; // Array to store pinned emails
-
+// Handle pinning emails
 function handlePinEmail(event) {
     const emailContainer = event.target.closest('.email-row'); 
     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
@@ -97,25 +63,29 @@ function handlePinEmail(event) {
     pinIcon.classList.toggle('active', isPinned);
 
     if (isPinned) {
-        // If pinned, add the email to the pinnedEmails array
+        // Add to pinnedEmails array and move to the top
         pinnedEmails.push(emailContainer);
-        emailContainer.style.order = `-${pinnedEmails.length}`; // Move it to the top
     } else {
-        // If unpinned, remove it from the array
+        // Remove from pinnedEmails array if unpinned
         pinnedEmails = pinnedEmails.filter(item => item !== emailContainer);
-        emailContainer.style.order = ''; // Reset order when unpinned
-
-        // Recalculate order for remaining pinned emails
-        pinnedEmails.forEach((pinnedEmail, index) => {
-            pinnedEmail.style.order = `-${index + 1}`;
-        });
     }
+
+    // Update the order of pinned emails
+    updatePinnedEmailOrder();
+}
+
+// Update the order for all pinned emails
+function updatePinnedEmailOrder() {
+    pinnedEmails.forEach((email, index) => {
+        email.style.order = `-${index + 1}`; // Negative order keeps them at the top
+    });
 }
 
 // Attach the event listener to all pin icons
 document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
     pinIcon.addEventListener('click', handlePinEmail);
 });
+
 // -------------------------------------------------------------------------------------------------------------
 
 

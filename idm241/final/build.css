@@ -9,6 +9,12 @@ header img {
     max-width: 30px;
     height: auto;
 }
+
+footer {
+    padding: 10px 20px;
+    background-color: #0078d4;
+    text-align: right;
+}
 /* Header end */
 
 
