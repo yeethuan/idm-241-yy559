@@ -11,9 +11,13 @@ header img {
 }
 
 footer {
-    padding: 10px 20px;
+    padding: 10px 40px;
     background-color: #0078d4;
-    text-align: right;
+    width: 100%;
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    box-sizing: border-box;
 }
 /* Header end */
 
@@ -36,7 +40,7 @@ body {
     color: #fff;
     padding: 20px;
     float: left;
-    height: 100vh;
+    height: 85vh;
 }
 
 .sidebar-container h2 {
@@ -59,17 +63,16 @@ body {
 
 /* Email Grid */
 .email-grid-wrapper {
-    margin-left: 200px;
+    margin-left: 210px;
     padding: 20px;
 }
 
 .email-grid {
     display: grid;
     flex-direction: column;
-    grid-template-columns: 40px 40px 100px 400px 500px 100px;
+    grid-template-columns: 20px 20px 100px 300px 650px 100px;
     padding: 10px 10px;
     gap: 17px;
-    border-bottom: 1px solid #ddd;
 }
 
 .email-row {
@@ -122,18 +125,6 @@ body {
 .jump {
     animation: jump 0.3s ease;
 }
-
-.move-to-top {
-    transition: order 0.5s ease, transform 0.5s ease; 
-    position: relative;
-}
-
-.pinned {
-    background-color: #ccdcff;
-    border: 1px solid #0052df;
-    order: -1;
-    z-index: 10;
-}
 /* PINNED EMAIL ACTIVE STATE END*/
 
 
@@ -150,7 +141,7 @@ body {
     display: none;
     gap: 20px;
     grid-column: 6;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 
@@ -223,12 +214,16 @@ body {
 .email-grid input[type="checkbox"] {
     margin: 0;
     cursor: pointer;
+    transition: color 0.5s ease;
 }
 
+
+/* CHECKBOX */
+
 .email-grid-wrapper .fa-star-o {
-    outline: #555555;
+    outline: #999;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.5s ease;
 }
 
 .email-grid-wrapper .fa-star-o.active {
@@ -238,10 +233,83 @@ body {
 .email-grid-wrapper .fa-star.active {
     color: #f0c420;
     cursor: pointer;
+    transition: color 0.5s ease;
 }
 
 /* Checkbox + Star End*/
 
+/* Container for the checkbox */
+.slayCheckbox {
+    cursor: pointer; 
+    justify-content: center;
+}
+
+.slayCheckbox input {
+    display: none;
+}
+
+.slayCheckbox span {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999; 
+    border-radius: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slayCheckbox span i {
+    width: 20px; 
+    height: 20px; 
+    margin-left: 2px;
+    transform: rotate(-45deg) translateX(0%) translateY(0%) scale(0.8);
+    transform-origin: center left;
+}
+
+/* Checkmark lines */
+.slayCheckbox span i:before,
+.slayCheckbox span i:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    border-radius: 20px; 
+}
+
+  /* Vertical line of the checkmark */
+.slayCheckbox span i:before {
+    height: 0%;
+    top: 50%;
+    left: 0;
+    width: 2px; 
+}
+
+  /* Horizontal line of the checkmark */
+.slayCheckbox span i:after {
+    width: 0%; 
+    bottom: 0;
+    left: 0;
+    height: 2px;
+}
+
+  /* Checked state styles */
+.slayCheckbox input:checked ~ span {
+    border: none;
+    background-color: #2979FF;
+}
+
+  /* Vertical checkmark line animation on check */
+.slayCheckbox input:checked ~ span i:before {
+    height: 50%;
+    transition: height 300ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+  /* Horizontal checkmark line animation on check */
+.slayCheckbox input:checked ~ span i:after {
+    width: 100%;
+    transition: width 300ms 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* CHECKBOX END */
 
 .sender,
 .subject,
