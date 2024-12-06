@@ -10,11 +10,18 @@
 
 
 <body>
-
     <header>
         <img src="media/outlook-logo.png" alt="Outlook Logo">
     </header>
 
+    <!-- Toolbar wrapper -->
+    <div class="toolbar-wrapper">
+        <div class="toolbar">
+            <span class="deleteall">Delete selected emails</span>
+        </div>
+    </div>
+
+    <div class="layout-wrapper">
     <!-- Sidebar Container -->
     <div class="sidebar-container">
         <h2>Folders</h2>
@@ -24,11 +31,6 @@
         </ul>
     </div>
     
-    <div class="toolbar-wrapper">
-        <div class="toolbar">
-            <span class="deleteall">Delete selected emails</span>
-        </div>
-    </div>
 
     <!-- EMAILS -->
     <div class="email-grid-wrapper">
@@ -135,8 +137,613 @@
             <div class="undo-popup" id="undoPopup" style="display: none;">
                 <p>Email deleted. <span id="undoButton">Undo</span></p>
             </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Triggers, Rules, Feedback, and Modes Container -->
+    <div class="content-grid">
+        <div>
+            <h3>TRIGGERS</h3>
+            <!-- CHECKBOX TRIGGERS------------------------------------------------------------------------------------------------------------------>
+            <h4>Checkbox - DEFAULT</h4>
+            <ul>
+                <li>Hover ON</li>
+                    <li>Hover OFF</li>
+                    <li>Mouse DOWN</li>
+                    <li>Mouse UP</li>    
+            </ul>
+            <h4>Checkbox - ACTIVE</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>    
+
+            <!-- STAR BUTTON TRIGGERS-->
+            <h4>Star Button - DEFAULT</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>
+            <h4>Star Button - ACTIVE</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse UP</li>
+            </ul>
+
+            
+            <!-- PIN BUTTON TRIGGERS-->
+            <h4>Pin Button - DEFAULT</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>
+            <h4>Pin Button - ACTIVE</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>
+
+            <!-- RESPOND BUTTON TRIGGERS-->
+            <h4>Response Button</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>
+            <h4>Trash Button</h4>
+            <ul>
+                <li>Hover ON</li>
+                <li>Hover OFF</li>
+                <li>Mouse DOWN</li>
+                <li>Mouse UP</li>
+            </ul>
         </div>
 
+        <!-- RULES-------------------------------------------------------------------------------------------------------------------- -->
+        <div>
+            <h3>RULES</h3>
+
+            <!-- Checkbox Rules -->
+            <h4>Checkbox - DEFAULT</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Gray outline turns a dark gray</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Gray outline resumes regular gray</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN
+                    <ul>
+                        <li>Gray outline turns to a light gray</li>
+                    </ul>
+                </li>
+                <li>Mouse UP
+                    <ul>
+                        <li>Checkbox background fills in dark blue</li>
+                        <li>Checkbox outline turns matching dark blue</li>
+                        <li>White checkmark appears inside the checkbox</li>
+                        <li>Email is selected for further action</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Checkbox - ACTIVE</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Checkbox background turns a dark blue</li>
+                        <li>Checkbox outline turns a matching dark blue</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Checkbox background resumes regular blue</li>
+                        <li>Checkbox outline turns a matching regular blue</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN</li>
+                    <ul>
+                        <li>Checkbox background turns light blue</li>
+                        <li>Checkbox outline turns matching light blue</li>
+                    </ul>
+                <li>Mouse UP</li>
+                    <ul>
+                        <li>Checkbox background turns white</li>
+                        <li>Checkbox outline turns regular gray</li>
+                        <li>Checkmark disappears</li>
+                        <li>Email is no longer selected for further action</li>
+
+                    </ul>
+            </ul>
+
+            <!-- Star Button Rules -->
+            <h4>Star Button - DEFAULT</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN</li>
+                    <ul>
+                        <li>Star is filled in yellow</li>
+                        <li>Star outline turns matching yellow</li>
+                    </ul>
+                <li>Mouse UP</li>
+                    <ul>
+                        <li>Star animates bursting effect releasing matching yellow particles lasting for 1s</li>
+                    </ul>
+            </ul>
+
+            <h4>Star Button - ACTIVE</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                    </ul>
+                </li>
+                <li>Mouse UP</li>
+                    <ul>
+                        <li>Star is filled in white</li>
+                        <li>Star outline turns black</li>
+                    </ul>
+            </ul>
+
+
+            <!-- PIN Button RULES -->
+            <h4>Pin Button - DEFAULT</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Icon .3s animation ease into blue</li>
+                        <li>3s delay “Pin this email” appears as tagline</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Icon .3s animation ease into gray</li>
+                        <li>“Pin this email” disappears as tagline</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN
+                    <ul>
+                        <li>Icon shrinks .9</li>
+                    </ul>
+                </li>
+                <li>Mouse UP
+                    <ul>
+                        <li>Icon unshrinks</li>
+                        <li>Email-container turns light blue</li>
+                        <li>Email-container outline turns dark blue</li>
+                        <li>Icon jumps</li>
+                        <li>Icon remains blue for ACTIVE state</li>
+                        <li>Database record set to TRUE</li>
+                        <li>Email-container is moved to the top of the Emails</li>
+
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Pin Button - ACTIVE</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>3s delay “Unpin this email” appears as tagline</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>“Unpin this email” disappears as tagline</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN
+                    <ul>
+                        <li>Icon shrinks .9</li>
+                    </ul>
+                </li>
+                <li>Mouse UP
+                    <ul>
+                        <li>Icon unshrinks</li>
+                        <li>Email-container returns color white</li>
+                        <li>Email-container outline returns to gray</li>
+                        <li>Icon returns to color gray</li>
+                        <li>Database record set to FALSE</li>
+                        <li>Email-container is returned to its original location</li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <!-- Response Button Rules -->
+            <h4>Response Button</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Icon .3s animation ease into blue</li>
+                        <li>3s delay Respond to email” appears as tagline</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Icon .3s animation ease into gray</li>
+                        <li>3s delay “Respond to email” disappears as tagline</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN
+                    <ul>
+                        <li>Icon shrinks .9</li>
+                    </ul>
+                </li>
+                <li>Mouse UP
+                    <ul>
+                        <li>Modal of input boxes appears to respond to email which includes respond and cancel button that close out the modal</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Trash Button Rules -->
+            <h4>Trash Button</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Icon .3s animation ease into blue</li>
+                        <li>3s delay "Delete this email” appears as tagline</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Icon .3s animation ease into gray</li>
+                        <li>3s delay “Delete this email” disappears as tagline</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN
+                    <ul>
+                        <li>Icon shrinks .9</li>
+                    </ul>
+                </li>
+                <li>Mouse UP
+                    <ul>
+                        <li>Email slides to the right and disappears</li>
+                        <li>Database record set to FALSE</li>
+                        <li>Trash number set to n+1</li>
+                        <li>Trash database set to n+1</li>
+                        <li>A popup appears at the bottom of the page confirming the email has been deleted, with an “Undo” button that causes the deleted email to reappear when triggered </li>
+                        <li>Popup fades away after 5s of inaction </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+            
+
+
+            <!-- FEEDBACK---------------------------------------------------------------------------------------------------------------------- -->
+            <div>
+            <h3>FEEDBACK</h3>
+
+            <!-- Checkbox Feedback -->
+            <h4>Checkbox - DEFAULT</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Gray outline turns a dark gray</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Gray outline resumes regular gray</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN
+                    <ul>
+                        <li>Gray outline turns to a light gray</li>
+                    </ul>
+                </li>
+                <li>Mouse UP
+                    <ul>
+                        <li>Checkbox background fills in dark blue</li>
+                        <li>Checkbox outline turns matching dark blue</li>
+                        <li>White checkmark appears inside the checkbox</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Checkbox - ACTIVE</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                        <li>Checkbox background turns a dark blue</li>
+                        <li>Checkbox outline turns a matching dark blue</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                        <li>Checkbox background resumes regular blue</li>
+                        <li>Checkbox outline turns a matching regular blue</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN</li>
+                    <ul>
+                        <li>Checkbox background turns light blue</li>
+                        <li>Checkbox outline turns matching light blue</li>
+                    </ul>
+                <li>Mouse UP</li>
+                    <ul>
+                        <li>Checkbox background turns white</li>
+                        <li>Checkbox outline turns regular gray</li>
+                        <li>Checkmark disappears</li>
+                    </ul>
+            </ul>
+
+            <!-- Star Button Feedback -->
+            <h4>Star Button - DEFAULT</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                    </ul>
+                </li>
+                <li>Mouse DOWN</li>
+                    <ul>
+                        <li>Star is filled in yellow</li>
+                        <li>Star outline turns matching yellow</li>
+                    </ul>
+                <li>Mouse UP</li>
+                    <ul>
+                        <li>Star animates bursting effect releasing matching yellow particles lasting for 1s</li>
+                    </ul>
+            </ul>
+
+            <h4>Star Button - ACTIVE</h4>
+            <ul>
+                <li>Hover ON
+                    <ul>
+                        <li>Cursor changes to finger</li>
+                    </ul>
+                </li>
+                <li>Hover OFF
+                    <ul>
+                        <li>Finger changes to cursor</li>
+                    </ul>
+                </li>
+                <li>Mouse UP</li>
+                    <ul>
+                        <li>Star is filled in white</li>
+                        <li>Star outline turns black</li>
+                    </ul>
+            </ul>
+
+
+            <!-- Pin Button FEEDBACK -->
+                <h4>Pin Button - DEFAULT</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay “Pin this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>“Pin this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Email-container turns light blue</li>
+                            <li>Email-container outline turns dark blue</li>
+                            <li>Icon jumps</li>
+                            <li>Icon remains blue for ACTIVE state</li>
+                            <li>Email-container is moved to the top of the Emails</li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Pin Button - ACTIVE</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>3s delay “Unpin this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>“Unpin this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Icon unshrinks</li>
+                            <li>Email-container returns color white</li>
+                            <li>Email-container outline returns to gray</li>
+                            <li>Icon returns to color gray</li>
+                            <li>Email-container is returned to its original location</li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <!-- Response Button Feedback -->
+                <h4>Response Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay Respond to email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>3s delay “Respond to email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Modal of input boxes appears to respond to email</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Trash Button</h4>
+                <ul>
+                    <li>Hover ON
+                        <ul>
+                            <li>Cursor changes to finger</li>
+                            <li>Icon .3s animation ease into blue</li>
+                            <li>3s delay "Delete this email” appears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Hover OFF
+                        <ul>
+                            <li>Finger changes to cursor</li>
+                            <li>Icon .3s animation ease into gray</li>
+                            <li>3s delay “Delete this email” disappears as tagline</li>
+                        </ul>
+                    </li>
+                    <li>Mouse DOWN
+                        <ul>
+                            <li>Icon shrinks .9</li>
+                        </ul>
+                    </li>
+                    <li>Mouse UP
+                        <ul>
+                            <li>Email slides to the right and disappears</li>
+                            <li>Trash number set to n+1</li>
+                            <li>A popup appears at the bottom of the page confirming the email has been deleted, with an “Undo” button that causes the deleted email to reappear when triggered </li>
+                            <li>Popup fades away after 5s of inaction </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- LOOPS AND MODES---------------------------------------------------------------------------------------------------------------------- -->
+            <div>
+            <h3>LOOPS &amp; MODES</h3>
+
+            <h4>Checkbox LOOPS</h4>
+            <ul>
+                <li>NONE</li>
+            </ul>
+
+
+            <h4>Checkbox MODES</h4>
+            <ul>
+                <li>NONE</li>
+            </ul>
+
+            <h4>Star Button LOOPS</h4>
+            <ul>
+                <li>NONE</li>
+            </ul>
+
+
+            <h4>Star Button MODES</h4>
+            <ul>
+                <li>NONE</li>
+            </ul>
+
+                <h4>Pin Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Pin Button MODES</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+                <h4>Response Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Response Button MODES</h4>
+                <ul>
+                    <li>Modal of input boxes appears to respond to email which includes respond and cancel button that close out the modal</li>
+                </ul>
+
+                <h4>Trash Button LOOPS</h4>
+                <ul>
+                    <li>NONE</li>
+                </ul>
+
+
+                <h4>Trash Button MODES</h4>
+                <ul>
+                    <li>A popup appears at the bottom of the page confirming the email has been deleted, with an “Undo” button that causes the deleted email to reappear when triggered</li>
+                </ul>
+            </div>
+    </div>
     <footer> </footer>
     
     <script src="build.js"></script>
