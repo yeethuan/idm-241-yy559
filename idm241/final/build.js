@@ -89,22 +89,13 @@ function handlePinEmail(event) {
         pinnedEmails = pinnedEmails.filter(item => item !== emailContainer); // Remove from pinned list
         emailContainer.style.backgroundColor = ''; // Reset background
     }
-
-    // Update the order of pinned emails
-    updatePinnedEmailOrder();
 }
 
-// Update the order for all pinned emails
-function updatePinnedEmailOrder() {
-    pinnedEmails.forEach((email, index) => {
-        email.style.order = `-${index + 1}`; // Negative order keeps pinned at the top
-    });
-}
-
-// Attach the event listener to all pin icons
+// Attach the event listener to all pin icons (moved outside the function)
 document.querySelectorAll('.fa-thumbtack').forEach(pinIcon => {
     pinIcon.addEventListener('click', handlePinEmail);
 });
+
 
 // -------------------------------------------------------------------------------------------------------------
 

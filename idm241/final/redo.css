@@ -1,0 +1,644 @@
+/* Header start */
+header {
+    padding: 10px 20px;
+    background-color: #0078d4;
+    text-align: right;
+}
+
+header img {
+    max-width: 30px;
+    height: auto;
+}
+
+/* head to outlook */
+a.styled-link {
+    background-color: #0078D4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+a.styled-link:hover, 
+a.styled-link:focus {
+    background-color: #005a9e; 
+    text-decoration: underline; 
+}
+
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f6fa;
+    color: #3a3a3a;
+}
+
+
+.layout-wrapper {
+    display: flex;
+    flex-direction: row; /* Sidebar on the left of the email grid by default */
+}
+
+
+.toolbar-wrapper{
+    text-align: center;
+    margin-bottom: 10px;
+    color: #999;
+}
+
+/* Sidebar START*/
+.sidebar-container {
+    width: 200px;
+    background-color: #003060;
+    color: #fff;
+    padding: 20px;
+    float: left;
+    height: 24vh;
+}
+
+.sidebar-container h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.sidebar-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-container li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+/* Sidebar END*/
+
+
+
+/* Email Grid */
+.email-grid {
+    display: grid;
+    flex-direction: column;
+    padding: 10px 10px;
+    gap: 17px;
+    margin-bottom: 30px;
+}
+
+.email-row {
+    display: contents;
+    padding: 10px 10px;
+    position: relative;
+    transition: order 0.5s ease;
+    cursor: pointer;
+}
+
+
+.email-row:hover {
+    background-color: #505050;
+}
+
+.email-content{
+    display: grid;
+    grid-template-columns: 20px 20px 100px 300px 640px 100px;
+}
+
+/* TRASH FUNCTION START*/
+.email-row.slide-to-trash {
+    opacity:1;
+    transform: translateX(100%);
+    transition: transform 1s ease-out, opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.hidden-row {
+    /* visibility: hidden; */
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+/* TRASH FUNCTION END*/
+
+
+
+/* PINNED EMAIL ACTIVE STATE START*/
+.email-row.pinned {
+    background-color: #c7e7ad !important;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.fa-thumbtack {
+    color: #ccc;
+    transition: color 0.2s ease;
+}
+
+.fa-thumbtack.active {
+    color: #f0c420; 
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {   
+        transform: translateY(-10px); 
+    }
+}
+
+.jump {
+    animation: jump 0.3s ease;
+}
+/* PINNED EMAIL ACTIVE STATE END*/
+
+
+/* Icons - hidden by default, visible on hover; positioning in place of the date START -----------------------------------------------------*/
+.email-row:hover .icon-container {
+    display: flex;
+}
+
+.email-row:hover .date {
+    display: none;
+}
+
+.icon-container {
+    display: flex;
+    gap: 20px;
+    grid-column: 6;
+    justify-content: flex-start;
+}
+
+
+.icon-container i {
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
+
+.icon-container i:hover {
+    color: #0078d4;
+}
+
+.icon-container .fa-thumbtack:active {
+    transform: scale(0.9);
+}
+
+.icon-container .fa-flag:active {
+    transform: scale(0.9);
+}
+
+.icon-container .fa-envelope-open:active {
+    transform: scale(0.9);
+}
+
+.icon-container .fa-trash:active {
+    transform: scale(0.9);
+}
+
+
+
+/* HOVER TAGS FOR EACH ICON START*/
+.email-icons .fa-thumbtack::after {
+    content: "Pin this email";
+    text-transform: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-thumbtack.active::after {
+    content: "Unpin this email"; 
+}
+
+.email-icons .fa-flag::after {
+    content: "Flag this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-flag.active::after {
+    content: "Unflag this email"; 
+}
+
+.email-icons .fa-envelope-open::after {
+    content: "Respond to email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-trash::after {
+    content: "Delete this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+/* HOVER TAGS FOR EACH ICON END*/
+/* Icons - hidden by default, visible on hover; positioning in place of the date END -----------------------------------------------------*/
+
+
+
+/* Undo Popup START*/
+.undo-popup {
+    position: fixed;
+    bottom: -35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    z-index: 800;
+    text-align: center;
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 20px;
+        opacity: 1;
+    }
+}
+
+.undo-popup.show {
+    animation: slideUp 0.5s ease forwards;
+    opacity: 1;
+}
+
+.undo-popup #undoButton {
+    color: #8abeff;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* UNDO POPUP EMAIL END */
+
+
+
+
+/* STAR */
+.email-grid-wrapper .fa-star-o {
+    outline: #999;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.email-grid-wrapper .fa-star-o.active {
+    color: #f0c420;
+}
+
+.email-grid-wrapper .fa-star.active {
+    color: #f0c420;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+/* STAR END */
+
+
+/* Checkbox Animation Start*/
+.email-grid input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.slayCheckbox {
+    cursor: pointer; 
+    justify-content: center;
+}
+
+.slayCheckbox input {
+    display: none;
+}
+
+.slayCheckbox span {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999; 
+    border-radius: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slayCheckbox span i {
+    width: 20px; 
+    height: 20px; 
+    margin-left: 2px;
+    transform: rotate(-45deg) translateX(0%) translateY(0%) scale(0.8);
+    transform-origin: center left;
+}
+
+/* Checkmark lines */
+.slayCheckbox span i:before,
+.slayCheckbox span i:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    border-radius: 20px; 
+}
+
+  /* Vertical line */
+.slayCheckbox span i:before {
+    height: 0%;
+    top: 50%;
+    left: 0;
+    width: 2px; 
+}
+
+  /* Horizontal line */
+.slayCheckbox span i:after {
+    width: 0%; 
+    bottom: 0;
+    left: 0;
+    height: 2px;
+}
+
+  /* Checked state styles */
+.slayCheckbox input:checked ~ span {
+    border: none;
+    background-color: #2979FF;
+}
+
+  /* Vertical checkmark line animation */
+.slayCheckbox input:checked ~ span i:before {
+    height: 50%;
+    transition: height 300ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+  /* Horizontal checkmark line animation */
+.slayCheckbox input:checked ~ span i:after {
+    width: 100%;
+    transition: width 300ms 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* CHECKBOX ANIMATION END */
+
+
+
+
+/* EMAIL POPUP HIDDEN-------------------------------------------------------- */
+.email-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.email-popup-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.email-popup h2 {
+    margin-top: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+
+
+
+
+.sender,
+.subject,
+.snippet,
+.date {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+/* DESCRIPTION GRID STYLING */
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    color: #fffefe;
+    text-align: left;
+    font-size:20px;
+}
+
+h2{
+    margin-bottom: 0px;
+}
+
+h3{
+    margin: 0;
+}
+
+h4{
+    text-align: left;
+}
+
+ul {
+    margin-left: 0; 
+    text-align: left;
+}
+
+li {
+    padding-left: 10px; 
+    line-height: 1.25;
+}
+
+
+
+
+/* head to original button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 20px 0;
+}
+
+a.styled-link {
+    background-color: #0078D4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+a.styled-link:hover, 
+a.styled-link:focus {
+    background-color: #005a9e; 
+    text-decoration: underline; 
+}
+/* head to original button */
+
+
+
+/* MICROINTERACTION ANALYSIS GRID START-------------------------------------------*/
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10 40px;
+}
+
+.content-grid div {
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* MICROINTERACTION ANALYSIS GRID END*/
+
+
+
+
+footer {
+    padding: 30px 40px;
+    background-color: #0078d4;
+}
+
+
+/* Responsive Design -------------------------------------------------*/
+@media (max-width: 900px) {
+    .layout-wrapper{
+        flex-direction: column;
+    }
+
+    .sidebar-container {
+        width: 100%;
+        margin-bottom: 20px;
+        display: block;
+        padding:0px;
+        text-align: center;
+    }
+
+
+    .sidebar-container ul {
+        margin-left: 15px;
+    }
+    
+
+
+    .inbox-container {
+        flex-direction: column;
+        align-items: center;
+        padding:0;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .email-row:hover .icon-container {
+        display: none;
+    }
+
+    .icon-container{
+        display:none;
+    }
+
+    .snippet{
+        display:none;
+    }
+
+    .email-grid {
+        display: grid;
+        flex-direction: column;
+        grid-template-columns: 30px 30px 50px 400px 2fr;
+        padding: 10px 10px;
+        gap: 17px;
+        margin-bottom: 30px;
+        padding-right: 0px;
+        margin-right: 0px;
+    }
+
+
+
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    
+    .email-grid {
+        display: grid;
+        flex-direction: column;
+        grid-template-columns: 30px 30px 120px 140px 2fr;
+        padding: 10px 10px;
+        gap: 17px;
+        margin-bottom: 30px;
+        padding-right: 0px;
+        margin-right: 0px;
+    }
+
+    .email-grid
+    .date{
+        display:flex-end;
+    }
+
+    .email-row .icon-container {
+        display: none;
+    }
+
+    .icon-container{
+        display:none;
+    }
+
+    .snippet{
+        display:none;
+    }
+
+
+    .email-container {
+        padding: 15px;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(1, 1fr);
+        padding-bottom: 10px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    
+    .email-grid {
+        display: grid;
+        flex-direction: column;
+        grid-template-columns: 10px 10px 60px 60px 2fr;
+        padding: 10px 10px;
+        gap: 17px;
+        margin-bottom: 30px;
+        padding-right: 0px;
+        margin-right: 0px;
+    }
+
+    .date{
+        display:none;
+    }
+}
