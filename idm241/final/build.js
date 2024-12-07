@@ -109,12 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// FLAG EMAIL --------------------------------------------------------------------------------
-document.querySelectorAll('.fa-flag').forEach(flag => {
-    flag.addEventListener('mousedown', () => {
-        flag.classList.toggle('active'); 
-    });
-});
 
 // STAR EMAIL
 document.querySelectorAll('.fa-star-o').forEach(starIcon => {
@@ -163,3 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
         respondPopup.style.display = 'none'; // Hide the popup after sending
     });
 });
+
+
+
+
+// CHECKBOXES-------------------------------------------------------------------------------
+const checkboxes = document.querySelectorAll('.slayCheckbox input[type="checkbox"]');
+const deleteText = document.querySelector('.deleteall');
+
+// Function to update the color of the "Delete selected emails" text
+function updateDeleteTextColor() {
+    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    if (isChecked) {
+        deleteText.style.color = 'red';
+    } else {
+        deleteText.style.color = 'gray';
+    }
+}
+
+// Add event listeners to all checkboxes
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateDeleteTextColor);
+});
+
+// Set initial state on page load
+updateDeleteTextColor();
