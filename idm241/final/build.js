@@ -144,10 +144,49 @@ document.querySelectorAll('.fa-star-o').forEach(starIcon => {
 });
 
 // RESPOND EMAIL --------------------------------------------------------------------------------
+function handleOpenEmail(event) {
+    const emailContainer = event.target.closest('.email-row');
+    if (emailContainer) {
+        // Get email details
+        const sender = emailContainer.querySelector('.sender').textContent;
+        const subject = emailContainer.querySelector('.subject').textContent;
+        const body = emailContainer.querySelector('.snippet').textContent;
 
+        // Populate the popup with email details
+        document.getElementById('popupSender').textContent = sender;
+        document.getElementById('popupSubject').textContent = subject;
+        document.getElementById('popupBody').textContent = body;
 
+        // Show the popup
+        document.getElementById('emailPopup').style.display = 'block';
+        const overlay = document.querySelector('.popup-overlay');
+        if (overlay) {
+            overlay.style.display = 'block';
+        }
 
+        // Attach close button event dynamically in case it's not available on page load
+        document.querySelector('.close-btn').addEventListener('click', closePopup);
+    }
+}
 
+function closePopup() {
+    document.getElementById('emailPopup').style.display = 'none';
+    const overlay = document.querySelector('.popup-overlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+}
+
+// Add event listeners to the "Respond to email" icons
+document.querySelectorAll('.fa-envelope-open').forEach(icon => {
+    icon.addEventListener('click', handleOpenEmail);
+});
+
+// Add overlay to close popup when clicked outside the email content
+const overlay = document.querySelector('.popup-overlay');
+if (overlay) {
+    overlay.addEventListener('click', closePopup);
+}
 
 // CHECKBOXES-------------------------------------------------------------------------------
 const checkboxes = document.querySelectorAll('.slayCheckbox input[type="checkbox"]');
@@ -170,7 +209,3 @@ checkboxes.forEach(checkbox => {
 
 // Set initial state on page load
 updateDeleteTextColor();
-
-
-
-
