@@ -144,40 +144,7 @@ document.querySelectorAll('.fa-star-o').forEach(starIcon => {
 });
 
 // RESPOND EMAIL --------------------------------------------------------------------------------
-function handleOpenEmail(event) {
-    const emailContainer = event.target.closest('.email-row');
-    if (emailContainer) {
-        // Get email details
-        const sender = emailContainer.querySelector('.sender').textContent;
-        const subject = emailContainer.querySelector('.subject').textContent;
-        const body = emailContainer.querySelector('.snippet').textContent;
 
-        // Populate the popup with email details
-        document.getElementById('popupSender').textContent = sender;
-        document.getElementById('popupSubject').textContent = subject;
-        document.getElementById('popupBody').textContent = body;
-
-        // Show the popup
-        document.getElementById('emailPopup').style.display = 'block';
-        document.querySelector('.popup-overlay').style.display = 'block';
-    }
-}
-
-function closePopup() {
-    document.getElementById('emailPopup').style.display = 'none';
-    document.querySelector('.popup-overlay').style.display = 'none';
-}
-
-// Add event listeners to the "Respond to email" icons
-document.querySelectorAll('.fa-envelope-open').forEach(icon => {
-    icon.addEventListener('click', handleOpenEmail);
-});
-
-// Add event listener for the close button
-document.querySelector('.close-btn').addEventListener('click', closePopup);
-
-// Add overlay to close popup when clicked outside the email content
-document.querySelector('.popup-overlay').addEventListener('click', closePopup);
 
 
 
