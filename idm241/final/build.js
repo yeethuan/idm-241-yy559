@@ -1,4 +1,5 @@
 let trashCount = 0;
+let inboxCount = 5; // Initial inbox count
 let lastDeletedEmail = null;
 let undoTimeout = null;
 
@@ -15,6 +16,16 @@ function showUndoPopup() {
     }, 5000);
 }
 
+function updateInboxCount() {
+    inboxCount--;
+    document.querySelector('.inbox-count').innerText = `(${inboxCount})`;
+}
+
+function undoInboxCount() {
+    inboxCount++;
+    document.querySelector('.inbox-count').innerText = `(${inboxCount})`;
+}
+
 function handleDeleteEmail(event) {
     const emailContainer = event.target.closest('.email-row');
     if (emailContainer) {
@@ -29,6 +40,8 @@ function handleDeleteEmail(event) {
         lastDeletedEmail = emailContainer;
         trashCount++;
         document.querySelector('.trash-count').innerText = `(${trashCount})`;
+
+        updateInboxCount();
         showUndoPopup();
     }
 }
@@ -38,6 +51,8 @@ function undoDeleteEmail() {
         lastDeletedEmail.classList.remove('slide-to-trash', 'hidden-row'); // Removes hidden-row to make visible again
         trashCount--;
         document.querySelector('.trash-count').innerText = `(${trashCount})`;
+
+        undoInboxCount();
 
         lastDeletedEmail = null;
         clearTimeout(undoTimeout);
@@ -129,39 +144,40 @@ document.querySelectorAll('.fa-star-o').forEach(starIcon => {
 });
 
 // RESPOND EMAIL --------------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-    const respondIcons = document.querySelectorAll('.fa-envelope-open');
-    const respondPopup = document.getElementById('respondPopup');
-    const closePopup = document.getElementById('closePopup');
-    const sendResponse = document.getElementById('sendResponse');
+function handleOpenEmail(event) {
+    const emailContainer = event.target.closest('.email-row');
+    if (emailContainer) {
+        // Get email details
+        const sender = emailContainer.querySelector('.sender').textContent;
+        const subject = emailContainer.querySelector('.subject').textContent;
+        const body = emailContainer.querySelector('.snippet').textContent;
 
-    // Show the popup when the envelope icon is clicked
-    respondIcons.forEach(icon => {
-        icon.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent event from bubbling
-            respondPopup.style.display = 'block'; // Show the popup
-        });
-    });
+        // Populate the popup with email details
+        document.getElementById('popupSender').textContent = sender;
+        document.getElementById('popupSubject').textContent = subject;
+        document.getElementById('popupBody').textContent = body;
 
-    // Close the popup when the cancel button is clicked
-    closePopup.addEventListener('click', () => {
-        respondPopup.style.display = 'none'; // Hide the popup
-    });
+        // Show the popup
+        document.getElementById('emailPopup').style.display = 'block';
+        document.querySelector('.popup-overlay').style.display = 'block';
+    }
+}
 
-    // Close the popup when clicking outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target === respondPopup) {
-            respondPopup.style.display = 'none';
-        }
-    });
+function closePopup() {
+    document.getElementById('emailPopup').style.display = 'none';
+    document.querySelector('.popup-overlay').style.display = 'none';
+}
 
-    // Functionality for sending response can be implemented here
-    sendResponse.addEventListener('click', () => {
-        const responseText = document.getElementById('responseText').value;
-        console.log('Response Sent:', responseText); // Placeholder for actual send logic
-        respondPopup.style.display = 'none'; // Hide the popup after sending
-    });
+// Add event listeners to the "Respond to email" icons
+document.querySelectorAll('.fa-envelope-open').forEach(icon => {
+    icon.addEventListener('click', handleOpenEmail);
 });
+
+// Add event listener for the close button
+document.querySelector('.close-btn').addEventListener('click', closePopup);
+
+// Add overlay to close popup when clicked outside the email content
+document.querySelector('.popup-overlay').addEventListener('click', closePopup);
 
 
 
@@ -187,3 +203,6 @@ checkboxes.forEach(checkbox => {
 
 // Set initial state on page load
 updateDeleteTextColor();
+
+
+
