@@ -101,10 +101,10 @@ body {
 }
 
 /* TRASH FUNCTION START*/
-.slide-to-trash {
-    opacity:0;
+.email-row.slide-to-trash {
+    opacity:1;
     transform: translateX(100%);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition: transform 1s ease-out, opacity 0.5s ease;
     pointer-events: none;
 }
 
@@ -119,13 +119,18 @@ body {
 
 
 /* PINNED EMAIL ACTIVE STATE START*/
+.email-row.pinned {
+    background-color: #c7e7ad !important;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
 .fa-thumbtack {
     color: #ccc;
     transition: color 0.2s ease;
 }
 
 .fa-thumbtack.active {
-    color: #0078d4; 
+    color: #ff7700; 
 }
 
 @keyframes jump {

@@ -54,20 +54,25 @@ document.getElementById('undoButton').addEventListener('click', undoDeleteEmail)
 
 
 // PIN EMAIL --------------------------------------------------------------------------------
+let pinnedEmails = [];
+
 // Handle pinning emails
 function handlePinEmail(event) {
     const emailContainer = event.target.closest('.email-row'); 
     const pinIcon = emailContainer.querySelector('.fa-thumbtack');
-    
+
+    // Toggle pinned state
     const isPinned = emailContainer.classList.toggle('pinned');
-    pinIcon.classList.toggle('active', isPinned);
+    pinIcon.classList.toggle('active', isPinned); // Update pin icon style
 
     if (isPinned) {
-        // Add to pinnedEmails array and move to the top
-        pinnedEmails.push(emailContainer);
+        // Email is pinned
+        pinnedEmails.push(emailContainer); // Add to pinned list
+        emailContainer.style.backgroundColor = '#c7e7ad'; // Highlight row green
     } else {
-        // Remove from pinnedEmails array if unpinned
-        pinnedEmails = pinnedEmails.filter(item => item !== emailContainer);
+        // Email is unpinned
+        pinnedEmails = pinnedEmails.filter(item => item !== emailContainer); // Remove from pinned list
+        emailContainer.style.backgroundColor = ''; // Reset background
     }
 
     // Update the order of pinned emails
@@ -77,7 +82,7 @@ function handlePinEmail(event) {
 // Update the order for all pinned emails
 function updatePinnedEmailOrder() {
     pinnedEmails.forEach((email, index) => {
-        email.style.order = `-${index + 1}`; // Negative order keeps them at the top
+        email.style.order = `-${index + 1}`; // Negative order keeps pinned at the top
     });
 }
 
