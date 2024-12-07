@@ -190,6 +190,39 @@ body {
 .icon-container .fa-trash:active {
     transform: scale(0.9);
 }
+
+
+
+/* HOVER TAGS FOR EACH ICON START*/
+.email-icons .fa-thumbtack::after {
+    content: "Pin this email";
+    text-transform: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-thumbtack.active::after {
+    content: "Unpin this email"; 
+}
+
+.email-icons .fa-flag::after {
+    content: "Flag this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-flag.active::after {
+    content: "Unflag this email"; 
+}
+
+.email-icons .fa-envelope-open::after {
+    content: "Respond to email";
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.email-icons .fa-trash::after {
+    content: "Delete this email";
+    font-family: 'Times New Roman', Times, serif;
+}
+/* HOVER TAGS FOR EACH ICON END*/
 /* Icons - hidden by default, visible on hover; positioning in place of the date END -----------------------------------------------------*/
 
 
