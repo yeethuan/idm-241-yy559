@@ -47,6 +47,14 @@ body {
     color: #3a3a3a;
 }
 
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align:center;
+}
+
 .layout-wrapper {
     display: flex;
     flex-direction: row; /* Sidebar on the left of the email grid by default */
