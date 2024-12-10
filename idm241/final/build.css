@@ -314,9 +314,9 @@ h2 {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0; /* Start hidden */
-    visibility: hidden; /* Fully hidden */
-    transform: translate(-50%, -50%) scale(0.95); /* Slight shrink */
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.95); 
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 }
 
