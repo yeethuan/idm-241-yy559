@@ -134,7 +134,8 @@ document.querySelectorAll('.fa-star-o').forEach(starIcon => {
     });
 });
 
-// RESPOND EMAIL --------------------------------------------------------------------------------
+// View EMAIL --------------------------------------------------------------------------------
+// Open email popup
 function handleOpenEmail(event) {
     const emailContainer = event.target.closest('.email-row');
     if (emailContainer) {
@@ -149,35 +150,32 @@ function handleOpenEmail(event) {
         document.getElementById('popupBody').textContent = body;
 
         // Show the popup
-        document.getElementById('emailPopup').style.display = 'block';
-        const overlay = document.querySelector('.popup-overlay');
-        if (overlay) {
-            overlay.style.display = 'block';
-        }
-
-        // Attach close button event dynamically in case it's not available on page load
-        document.querySelector('.close-btn').addEventListener('click', closePopup);
+        const emailPopup = document.getElementById('emailPopup');
+        emailPopup.classList.remove('hide');
+        emailPopup.classList.add('show');
     }
 }
 
+// Close email popup
 function closePopup() {
-    document.getElementById('emailPopup').style.display = 'none';
-    const overlay = document.querySelector('.popup-overlay');
-    if (overlay) {
-        overlay.style.display = 'none';
-    }
+    const emailPopup = document.getElementById('emailPopup');
+    emailPopup.classList.remove('show');
+    emailPopup.classList.add('hide');
 }
 
-// Add event listeners to the "Respond to email" icons
-document.querySelectorAll('.fa-envelope-open').forEach(icon => {
-    icon.addEventListener('click', handleOpenEmail);
+// Attach event listeners to the email open buttons
+document.querySelectorAll('.fa-envelope-open').forEach(button => {
+    button.addEventListener('click', handleOpenEmail);
 });
 
-// Add overlay to close popup when clicked outside the email content
-const overlay = document.querySelector('.popup-overlay');
-if (overlay) {
-    overlay.addEventListener('click', closePopup);
+// Attach event listener to the close button
+const closeButton = document.querySelector('.close-btn');
+if (closeButton) {
+    closeButton.addEventListener('click', closePopup);
 }
+
+
+
 
 // CHECKBOXES-------------------------------------------------------------------------------
 const checkboxes = document.querySelectorAll('.slayCheckbox input[type="checkbox"]');
